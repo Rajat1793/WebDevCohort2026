@@ -28,13 +28,13 @@
 </br>
 
 ## Documentation
-- ### [Class Summary : understand](./class_summary/README.md)
+- ### [Class Summary](./class_summary/README.md)
 
-- ### [Assignments : learn](./assignments/README.md)
+- ### [Assignments](./assignments/README.md)
 
-- ### [Articles : showcase](./articles/README.md)
+- ### [Articles](./articles/README.md)
 
-- ### [Projects : apply](./projects/README.md)
+- ### [Projects](./projects/README.md)
 
 </br>
 
