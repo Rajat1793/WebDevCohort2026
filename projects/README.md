@@ -1,0 +1,2 @@
+## Project Showcase
+This directory contains the projects I have built during the **Web Dev Cohort 2026** course. Each project demonstrates the application of web development concepts and technologies learned throughout the program.
