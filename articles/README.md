@@ -53,3 +53,19 @@
       <img width = "500px" alt="DNS Resolution" src="./assets/article3.png">
     <p>
   </a>
+
+### <a id="curl-command"></a>[Curl Command](https://networkbasic101.hashnode.dev/getting-started-with-curl)
+
+  <a href="https://networkbasic101.hashnode.dev/getting-started-with-curl">
+      <p align=center>
+      <img width = "500px" alt="Curl Command" src="./assets/article4.png">
+    <p>
+  </a>
+
+### <a id="tcp-vs-udp"></a>[TCP vs UDP](https://networkbasic101.hashnode.dev/tcp-vs-udp)
+
+  <a href="https://networkbasic101.hashnode.dev/tcp-vs-udp">
+      <p align=center>
+      <img width = "500px" alt="Curl Command" src="./assets/article5.png">
+    <p>
+  </a>

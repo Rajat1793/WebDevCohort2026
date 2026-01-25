@@ -25,6 +25,7 @@
     - [Network Devices](https://networkbasic101.hashnode.dev/the-network-puzzle-understanding-gateways-guides-and-guards)
     - [DNS Record](https://networkbasic101.hashnode.dev/dns-record-types-explained)
     - [DNS Resolution](https://networkbasic101.hashnode.dev/how-dns-resolution-works)
+    - [Curl Command](https://networkbasic101.hashnode.dev/getting-started-with-curl)
 
 ### Day 2:
 **Topic:** Internet Proticols and Client Server Architecture
@@ -33,3 +34,22 @@
     In this class, we learned about various internet protocols like TCP/IP HTTP, HTTPS TLS/ SSL WebSocket WebRTC, UDP etc and how they work behind the scenes to establish communication between client and server. We also learned about the client-server architecture and how it works.
 
 **Articles**
+    - [TCP vs UDP](https://networkbasic101.hashnode.dev/tcp-vs-udp)
+    - [TCP 3-way Handshake]()
+
+### Day 3:
+**Topic:** Github continued
+**Date:** 22nd January 2026
+**Summary**
+    In this class, we continued our learning of Git and Github. We learned about branching, merging, pull requests, and resolving merge conflicts. We also learned about best practices for using Git in a team environment.
+
+### Day 4:
+**Topic:** HTML Basics
+**Date:** 24th January 2026
+**Summary**
+    In this class, we looked at the how things work in the background of a browser and how it loads a webpage, how pages are rendered in the browser. We also learned about the Document Object Model (DOM) and how it represents the structure of a webpage. Finally,
+    we were introduced to the basics of HTML (Hypertext Markup Language). We learned about the structure of an HTML document, common HTML tags and their attributes, and how to create a simple webpage using HTML.
+
+**Articles**
+    - [Emmet for HTML]
+    - [How Browsers Work]
