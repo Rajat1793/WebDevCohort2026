@@ -7,7 +7,7 @@
 <!-- Social Media Links -->
 <div align= center>
 
-[![Twitter Badge](https://img.shields.io/badge/-@Rajat_Jas-1ca0f1?style=social&labelColor=red&logo=x&logoColor=black&link=https://x.com/Rajat_Jas)](https://x.com/Rajat_Jas)&nbsp;&nbsp;[![Linkedin Badge](https://img.shields.io/badge/@rajat--jaiswal17-0e76a8)](https://www.linkedin.com/in/rajat-jaiswal17/)&nbsp;&nbsp;[![Mail Badge](https://img.shields.io/badge/-rajat.jas@gmail.com-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=pink)](mailto:rajat.jas@gmail.com)&nbsp;&nbsp;
+[![Twitter Badge](https://img.shields.io/badge/-@Rajat_Jas-1ca0f1?style=social&labelColor=red&logo=x&logoColor=black&link=https://x.com/Rajat_Jas)](https://x.com/Rajat_Jas)&nbsp;&nbsp;&nbsp;&nbsp;[![Linkedin Badge](https://img.shields.io/badge/@rajat--jaiswal17-0e76a8)](https://www.linkedin.com/in/rajat-jaiswal17/)&nbsp;&nbsp;&nbsp;&nbsp;[![Mail Badge](https://img.shields.io/badge/-rajat.jas@gmail.com-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=pink)](mailto:rajat.jas@gmail.com)
 
 </div>
 
@@ -28,26 +28,24 @@
 </br>
 
 ## Documentation
-- ### [Class Summary](./class_summary/README.md)
-
-- ### [Assignments](./assignments/README.md)
-
 - ### [Articles](./articles/README.md)
-
+- ### [Assignments](./assignments/README.md)
+- ### [Class Summary](./class_summary/README.md)
 - ### [Projects](./projects/README.md)
+
+</br>
+
+## Labs
+- #### [HTML Lab](https://labs.chaicode.com/html)
+- #### [CSS Lab](https://labs.chaicode.com/css)
+- #### [JavaScript Lab](https://labs.chaicode.com/js)
 
 </br>
 
 ## Tech Stack
 
 - [Git](https://git-scm.com/) – versioning
-
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) – structuring
-
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) – modular css
 
 </br>
-
-## License
-
-This project is licensed under the [MIT License](./LICENSE). &nbsp;Feel free to learn, add upon, and share my work!
