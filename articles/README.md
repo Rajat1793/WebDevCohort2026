@@ -69,3 +69,12 @@
       <img width = "500px" alt="Curl Command" src="./assets/article5.png">
     <p>
   </a>
+
+### <a id="tcp-3way-handshake"></a>[TCP 3-way Handshake](https://networkbasic101.hashnode.dev/how-tcp-works)
+
+  <a href="https://networkbasic101.hashnode.dev/how-tcp-works">
+      <p align=center>
+      <img width = "500px" alt="Curl Command" src="./assets/article6.png">
+    <p>
+  </a>
+

@@ -35,7 +35,7 @@
 
 **Articles**
     - [TCP vs UDP](https://networkbasic101.hashnode.dev/tcp-vs-udp)
-    - [TCP 3-way Handshake]()
+    - [TCP 3-way Handshake](https://networkbasic101.hashnode.dev/how-tcp-works)
 
 ### Day 3:
 **Topic:** Github continued
@@ -53,3 +53,14 @@
 **Articles**
     - [Emmet for HTML]
     - [How Browsers Work]
+
+### Day 5:
+**Topic:** Basics of CSS
+**Date:** 25th January 2026
+**Summary**
+    In this class, we were introduced to the basics of CSS (Cascading Style Sheets). Why its called cascading, how CSS works, and how to apply styles to HTML elements using selectors, properties, and values. We also learned about different ways to include CSS in a webpage, including inline styles, internal stylesheets, and external stylesheets.
+
+**Articles**
+    - [Understanding HTMl Tags and Elements]
+    - [CSS Selectors]
+
