@@ -51,8 +51,8 @@
     we were introduced to the basics of HTML (Hypertext Markup Language). We learned about the structure of an HTML document, common HTML tags and their attributes, and how to create a simple webpage using HTML.
 
 **Articles**
-    - [Emmet for HTML]
-    - [How Browsers Work]
+    - [Emmet for HTML](https://html-css-basics.hashnode.dev/emmet-for-html)
+    - [How Browsers Work](https://html-css-basics.hashnode.dev/how-a-browser-works)
 
 ### Day 5:
 **Topic:** Basics of CSS
@@ -61,6 +61,6 @@
     In this class, we were introduced to the basics of CSS (Cascading Style Sheets). Why its called cascading, how CSS works, and how to apply styles to HTML elements using selectors, properties, and values. We also learned about different ways to include CSS in a webpage, including inline styles, internal stylesheets, and external stylesheets.
 
 **Articles**
-    - [Understanding HTMl Tags and Elements]
+    - [Understanding HTMl Tags and Elements](https://html-css-basics.hashnode.dev/understanding-html-tags-and-elements)
     - [CSS Selectors]
 

@@ -94,3 +94,12 @@
     <p>
   </a>
 
+### <a id="html-tags"></a>[Understanding HTML Tags and Elements](https://html-css-basics.hashnode.dev/understanding-html-tags-and-elements)
+
+  <a href="https://html-css-basics.hashnode.dev/understanding-html-tags-and-elements">
+      <p align=center>
+      <img width = "500px" alt="Understanding HTML Tags and Elements" src="./assets/article9.png">
+    <p>
+  </a>
+
+
