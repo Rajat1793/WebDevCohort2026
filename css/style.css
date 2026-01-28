@@ -207,7 +207,7 @@ a:hover {
     display: inline-block;
     margin: 20px 0;
     padding: 12px 24px;
-    background: #28a745;
+    background: #96be9f;
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -216,7 +216,7 @@ a:hover {
 }
 
 .articles-link:hover {
-    background: #22863a;
+    background: #96be9fe1;
 }
 
 /* Horizontal Rule */

@@ -78,3 +78,19 @@
     <p>
   </a>
 
+### <a id="emmet-for-html"></a>[Emmet for HTML](https://html-css-basics.hashnode.dev/emmet-for-html)
+
+  <a href="https://html-css-basics.hashnode.dev/emmet-for-html">
+      <p align=center>
+      <img width = "500px" alt="Emmet for HTML" src="./assets/article7.png">
+    <p>
+  </a>
+
+### <a id="how-browsers-work"></a>[How Browsers Work](https://html-css-basics.hashnode.dev/how-a-browser-works)
+
+  <a href="https://html-css-basics.hashnode.dev/how-a-browser-works">
+      <p align=center>
+      <img width = "500px" alt="How Browsers Work" src="./assets/article8.png">
+    <p>
+  </a>
+
