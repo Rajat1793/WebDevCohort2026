@@ -102,4 +102,11 @@
     <p>
   </a>
 
+### <a id="css-selectors"></a>[CSS Selectors 101](https://html-css-basics.hashnode.dev/css-selectors-101)
+
+  <a href="https://html-css-basics.hashnode.dev/css-selectors-101">
+      <p align=center>
+      <img width = "500px" alt="CSS Selectors 101" src="./assets/article10.png">
+    <p>
+  </a>
 

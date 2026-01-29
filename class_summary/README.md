@@ -62,5 +62,5 @@
 
 **Articles**
     - [Understanding HTMl Tags and Elements](https://html-css-basics.hashnode.dev/understanding-html-tags-and-elements)
-    - [CSS Selectors]
+    - [CSS Selectors](https://html-css-basics.hashnode.dev/css-selectors-101)
 
