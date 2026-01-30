@@ -7,7 +7,7 @@
 <!-- Social Media Links -->
 <div align= center>
 
-[![Twitter Badge](https://img.shields.io/badge/-@Rajat_Jas-1ca0f1?style=social&labelColor=red&logo=x&logoColor=black&link=https://x.com/Rajat_Jas)](https://x.com/Rajat_Jas)&nbsp;&nbsp;&nbsp;&nbsp;[![Linkedin Badge](https://img.shields.io/badge/@rajat--jaiswal17-0e76a8)](https://www.linkedin.com/in/rajat-jaiswal17/)&nbsp;&nbsp;&nbsp;&nbsp;[![Mail Badge](https://img.shields.io/badge/-rajat.jas@gmail.com-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=pink)](mailto:rajat.jas@gmail.com)
+[![Twitter Badge](https://img.shields.io/badge/-@Rajat_Jas-1ca0f1?style=social&labelColor=red&logo=x&logoColor=black&link=https://x.com/Rajat_Jas)](https://x.com/Rajat_Jas)&nbsp;&nbsp;&nbsp;&nbsp;[![Linkedin Badge](https://img.shields.io/badge/@rajat--jaiswal17-0e76a8)](https://www.linkedin.com/in/rajat-jaiswal17/)&nbsp;&nbsp;&nbsp;&nbsp;[![Mail Badge](https://img.shields.io/badge/-rajat.jas@gmail.com-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=pink)](mailto:rajat.jas@gmail.com)&nbsp;&nbsp;&nbsp;&nbsp;![Visitor Count](https://hits.sh/github.com/rajat1793/WebDevCohort2026.svg?label=Visitors&color=0366d6&labelColor=24292e)
 
 </div>
 

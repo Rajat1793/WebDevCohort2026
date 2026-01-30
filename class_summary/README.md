@@ -64,3 +64,9 @@
     - [Understanding HTMl Tags and Elements](https://html-css-basics.hashnode.dev/understanding-html-tags-and-elements)
     - [CSS Selectors](https://html-css-basics.hashnode.dev/css-selectors-101)
 
+### Day 6:
+**Topic:** CSS Continued (T Class)
+**Date:** 29th January 2026
+**Summary**
+    In this class, we continued our learning of CSS. We learned about the box model(context-box, border-box), display properties, pseudo-class selector, positioning, and layout techniques using Grid. We also learned about responsive design principles and how to create webpages that adapt to different screen sizes and devices.
+    
