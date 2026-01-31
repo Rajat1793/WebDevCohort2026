@@ -1,0 +1,138 @@
+/* User agent setting */
+:root {
+    --text-color: #333333;
+    --accent-color: #699fdd;
+    --accent-hover-color: #0256c7;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: #1d1d1d;
+    color: var(--text-color);
+}
+
+nav{
+    background-color: #d5d5d5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+nav h1{
+    color: var(--text-color);
+}
+
+nav div a{
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+nav div a:hover{
+    text-decoration: underline;
+}
+
+nav div button{
+    background-color: var(--text-color);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+nav div button:hover{
+    background-color: var(--accent-hover-color);
+    color: white;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.main-left{
+    width: 80%;
+    margin: 60px auto;
+    color: #f1f1f1;
+    padding: 20px;
+}
+
+.main-left h1{
+    margin-bottom: 80px;
+    color: var(--accent-color);
+}
+
+.main-left p{
+    font-size: 24px;
+    color: #d5d5d5;
+    line-height: 1.6;
+}
+
+.main-left button{
+    background-color: var(--text-color);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main-right img{
+    width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.content{
+    width: 80%;
+    margin: 60px auto;
+    color: var(--accent-color);
+    padding: 20px;
+}
+.content h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.cohort-card {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.card button{
+    background-color: var(--text-color);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

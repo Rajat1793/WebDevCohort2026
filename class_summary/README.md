@@ -70,3 +70,11 @@
 **Summary**
     In this class, we continued our learning of CSS. We learned about the box model(context-box, border-box), display properties, pseudo-class selector, positioning, and layout techniques using Grid. We also learned about responsive design principles and how to create webpages that adapt to different screen sizes and devices.
     
+### Day 7:
+**Topic:** CSS Flexbox and Grid
+**Date:** 31st January 2026
+**Summary**
+    In this class, we learned about CSS Flexbox techniques. We learned how to use Flexbox to create flexible and responsive layouts, We also learned about best practices for using Flexbox and Grid in web design.Flex is always used on the parent container to align the child elements.
+    main axis - left to right
+    cross axis - top to bottom
+

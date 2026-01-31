@@ -31,6 +31,7 @@
 - ### [Articles](./articles/README.md)
 - ### [Assignments](./assignments/README.md)
 - ### [Class Summary](./class_summary/README.md)
+- ### [Live Class Code](./live_class_code/README.md)
 - ### [Projects](./projects/README.md)
 
 </br>
