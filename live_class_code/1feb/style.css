@@ -1,0 +1,54 @@
+body{
+    background-color: #000;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#parent{
+    border: 1px solid pink;
+    display: grid;
+
+    /* grid-template-columns: 100px 100px 100px; 
+    grid-template-rows: 100px 100px 100px; */
+    /* grid-template-columns: repeat(2, 60px);
+    grid-template-rows: repeat(4, 60px); */
+    /* grid-template-columns: 80px repeat(2, 150px) 50px;
+    grid-template-rows: 50px 100px 100px; */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 150px);
+    gap: 10px;
+}
+
+.child{
+    border: 1px solid yellow;
+    background-color: pink;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child-6{
+    /* grid-row-start: -2;
+    grid-row-end: -1;
+
+    grid-column-start: 3;
+    grid-column-end: 2; */
+
+    /* Short hand */
+    /* grid-row: -2 / -1;
+    grid-column: 3 / 2; */
+
+    /* Mini */
+    /* grid-area: row-start / column-start / row-end / column-end; */
+    /* grid-area: 5 / 1 / 5 / 3; */
+    grid-area: 5 / 1 / 6 / span 2;
+}
+
+.child-7{
+    grid-column-start: 2;
+    grid-column-end: -1;
+    grid-row-start: 4;
+}
+
+/* grid template area -> never used*/

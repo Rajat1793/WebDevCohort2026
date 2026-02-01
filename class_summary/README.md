@@ -78,3 +78,9 @@
     main axis - left to right
     cross axis - top to bottom
 
+### Day 8:
+**Topic:** CSS Grid & Tailwind CSS
+**Date:** 1st February 2026
+**Summary**
+    In this class, we learned about CSS Grid techniques. We learned how to use Grid to create flexible and responsive layouts, including defining rows and columns, placing items, and using grid areas. We also discussed best practices for using Grid alongside Flexbox in web design.
+    Also looked into Tailwind CSS and its utility-first approach to styling, tailwind is mobile first design

@@ -20,5 +20,33 @@ A single-page resume website demonstrating proper HTML5 structure and semantic e
 **🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/assignments/week_1/html-resume/)
 
 ---
+## 📅 Week 2: HTML & CSS Basics
+
+### Assignment: Cursor Homepage Clone
+A single-page cursor.com homepage clone using HTML and CSS
+
+**Skills Covered:**
+- HTML5 structure and semantic elements
+- CSS styling and layout techniques
+- Responsive design principles
+
+**📁 Project Files:** [week_2/cursor-homepage](./week_2/cursor-homepage/)
+
+**🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/cursor-homepage/)
+
+### Assignment: Mintlify Homepage Clone
+A single-page mintlify.com homepage clone using HTML and CSS
+
+**Skills Covered:**
+- HTML5 structure and semantic elements
+- CSS styling and layout techniques
+- Responsive design principles
+
+**📁 Project Files:** [week_2/mintlify-homepage](./week_2/mintlify-homepage/)
+
+**🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/mintlify-homepage/)
+
+---
+
 
 *More weeks will be added as the course progresses.*
