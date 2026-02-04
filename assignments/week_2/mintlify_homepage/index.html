@@ -3,360 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mintlify - The Intelligent Knowledge Platform</title>
+    <title>Mintlify</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 1. Top Navigation Bar -->
-    <nav class="navbar">
+    <!-- Header Section -->
+    <header>
         <div class="nav-container">
-            <div class="nav-left">
-                <div class="logo">
-                    <img src="./assets/company-logo.svg" alt="Mintlify Logo">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <span><a href="#home"><img src="./assets/company-logo.svg" alt="logo"></a></span>
+                    <nav class="navigation">
+                        <div>
+                            <ul>
+                                <li><a href="#resources">Resources</a></li>
+                                <li><a href="#documentation">Documentation</a></li>
+                                <li><a href="#customers">Customers</a></li>
+                                <li><a href="#blog">Blog</a></li>
+                                <li><a href="#pricing">Pricing</a></li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-                <div class="nav-links">
-                    <a href="#product">Product</a>
-                    <a href="#customers">Customers</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#docs">Docs</a>
-                    <a href="#blog">Blog</a>
+                <div class="nav-right">
+                    <div class="cto">
+                        <a href="#contact-sales" class="contact">Contact sales</a>
+                        <a href="#sign-in" class="signin">Start for free</a>
+                    </div>
                 </div>
-            </div>
-            <div class="nav-right">
-                <a href="#login" class="nav-login">Contact scales</a>
-                <button class="btn-primary">Start for free</button>
             </div>
         </div>
-    </nav>
+    </header>
+
+    <!-- Background Image -->
+    <div class="bg-hero"><img src="./assets/bg-light.svg" alt=""></div>
 
     <!-- Announcement Banner -->
-    <div class="announcement-banner">
-        <a href="#">
-            <span class="badge">NEW</span>
-            Self-updating docs with agent suggestions
-        </a>
+    <div class="announcement">
+        <button>
+            <a href="#announcement"><span class="new">NEW</span> Self-updating docs with agent suggestions</a>
+        </button>
     </div>
 
-    <!-- 2. Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">The Intelligent 
-                Knowledge Platform</h1>
-            <p class="hero-subtitle">Helping teams create and maintain world-class documentation built for both humans and AI</p>
-            <div class="hero-cta">
-                <button class="btn-hero-primary">Start now</button>
-            </div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>The Intelligent Knowledge Platform</h1>
+        <p>Helping teams create and maintain world-class documentation built for both humans and AI</p>
+        <form>
+            <input type="text" placeholder="Email address">
+            <button>Start now</button>
+        </form>
+    </div>
+
+    <!-- Container Section -->
+    <div class="container">
+        <img src="./assets/hero-image-light.svg">
+    </div>
+
+    <!-- Company Section -->
+    <section class="logos-section">
+        <div class="logos-container">
+            <img src="./assets/anthropic copy.svg">
+            <img src="./assets/coinbase.svg">
+            <img src="./assets/microsoft.svg">
+            <img src="./assets/perplexity-white.svg">
+            <img src="./assets/hubspot.svg">
+            <img src="./assets/x.svg">
+            <img src="./assets/paypal.svg">
+            <img src="./assets/lovable.svg">
         </div>
     </section>
 
-    <!-- 3. Trusted By / Logos -->
-    <section class="trusted-by">
-        <div class="company-logos">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=Anthropic" alt="Anthropic">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=Coinbase" alt="Coinbase">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=Microsoft" alt="Microsoft">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=Perplexity" alt="Perplexity">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=HubSpot" alt="HubSpot">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=X" alt="X">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=PayPal" alt="PayPal">
-            <img src="https://via.placeholder.com/140x50/FFFFFF/666666?text=Lovable" alt="Lovable">
-        </div>
-    </section>
-
-    <!-- 4. Feature Sections (3 blocks) -->
-    <section class="main-features">
-        <div class="section-header">
-            <h2 class="main-title">Built for the intelligence age</h2>
-            <p class="main-subtitle">Integrate AI into every part of your docs lifecycle. Woven into how your knowledge is written, maintained, and understood by both users and LLMs.</p>
+    <!-- Feature Section -->
+    <section class="feature">
+        <div class="feature-content">
+            <h2>Built for the intelligence age</h2>
+            <p>Integrate AI into every part of your docs lifecycle. Woven into how your knowledge is written, maintained, and understood by both users and LLMs.</p>
         </div>
 
-        <!-- Feature 1 -->
-        <div class="feature-block">
-            <div class="feature-text">
-                <div class="feature-label">LLMS.TXT & MCP</div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span><p>LLMs.TXT & MCP</p></span>
                 <h3>Built for both people and AI</h3>
                 <p>Ensure your product shows up in the AI workflows users already rely on. We support llms.txt, MCP, and whatever comes next.</p>
-                <span class="feature-tag">AGENT</span>
+                <div class="feature-image">
+                    <img src="./assets/feature-1.gif">
+                </div>
             </div>
-            <div class="feature-image">
-                <img src="https://via.placeholder.com/600x400/F0FDF4/22C55E?text=AI+Integration" alt="AI Integration">
-            </div>
-        </div>
-
-        <!-- Feature 2 (Reversed) -->
-        <div class="feature-block reverse">
-            <div class="feature-image">
-                <img src="https://via.placeholder.com/600x400/F0FDF4/22C55E?text=Knowledge+Management" alt="Knowledge Management">
-            </div>
-            <div class="feature-text">
+            <div class="feature-card">
+                <span><p>AGENT</p></span>
                 <h3>Self-updating knowledge management</h3>
                 <p>Draft, edit, and maintain content with a context-aware agent. Move faster and more consistently without the documentation debt.</p>
-                <span class="feature-tag">ASSISTANT</span>
+                <div class="feature-image">
+                    <img src="./assets/feature-2.gif" width="400px">
+                </div>
             </div>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="feature-block">
-            <div class="feature-text">
+            <div class="feature-card">
+                <span><p>ASSISTANT</p></span>
                 <h3>Intelligent assistance for your users</h3>
                 <p>Turn every documentation visit into a guided conversation. Your AI assistant understands context and delivers what users need.</p>
-            </div>
-            <div class="feature-image">
-                <img src="https://via.placeholder.com/600x400/F0FDF4/22C55E?text=User+Assistance" alt="User Assistance">
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Feature Cards Section -->
-    <section class="enterprise-section">
-        <div class="enterprise-header">
-            <div class="feature-label">ENTERPRISE-REINVENTION</div>
-            <h2>Bring intelligence to enterprise knowledge</h2>
-            <p>Modernize without the rebuild with enterprise-grade professional service & security.</p>
-            <a href="#" class="link-button">Explore for enterprise</a>
-        </div>
-        
-        <div class="enterprise-cards">
-            <div class="enterprise-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x250/F0FDF4/22C55E?text=Partnership" alt="Partnership">
+                <div class="feature-image">
+                    <img src="./assets/feature3.png" alt="">
                 </div>
-                <h3>Build with partnership</h3>
-                <p>Direct, white-glove access to our documentation experts. Dedicated migration support and guidance tailored to your setup, and elevated support SLAs.</p>
-            </div>
-            <div class="enterprise-card">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/400x250/F0FDF4/22C55E?text=Compliance" alt="Compliance">
+        </div>
+    </section>
+
+    <!-- Enterprise Section -->
+    <section class="enterprise">
+        <div class="enterprise-container">
+            <div class="enterprise-content">
+                <div class="enterprise-text">
+                    <h4>Enterprise-reinvention</h4>
+                    <h3>Bring intelligence to enterprise knowledge</h3>
+                    <p>Modernize without the rebuild with enterprise-grade professional service & security.</p>
                 </div>
-                <h3>Compliance and access control</h3>
-                <p>Compliant with SOC 2, and in the process for ISO/27001 and GDPR compliance to meet your internal and external data requirements. Secure access and provisioning with SAML-based SSO.</p>
+                <a href="#">Explore for enterprise</a>
             </div>
-        </div>
-
-        <div class="enterprise-logos">
-            <img src="https://via.placeholder.com/100x40/FFFFFF/666666?text=Anthropic" alt="Anthropic">
-            <img src="https://via.placeholder.com/100x40/FFFFFF/666666?text=Coinbase" alt="Coinbase">
-            <img src="https://via.placeholder.com/100x40/FFFFFF/666666?text=HubSpot" alt="HubSpot">
-            <img src="https://via.placeholder.com/100x40/FFFFFF/666666?text=Zapier" alt="Zapier">
-            <img src="https://via.placeholder.com/100x40/FFFFFF/666666?text=AT&T" alt="AT&T">
-        </div>
-        <p class="customers-label">CUSTOMERS</p>
-    </section>
-
-    <!-- 6. Customer Stories / Testimonials -->
-    <section class="customers-section">
-        <div class="section-header">
-            <h2 class="main-title">Unlock knowledge for any industry</h2>
-            <p class="main-subtitle">From frontier AI companies to consumer brands, leaders across industries scale with Mintlify.</p>
-        </div>
-
-        <div class="customer-grid">
-            <div class="customer-card">
-                <div class="customer-logo">Perplexity</div>
-                <p>How Perplexity transformed its documentation into an AI-native developer experience that matches the pace of its product development</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">X</div>
-                <p>How X is using Mintlify to power the developer experience for the global town square</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Kalshi</div>
-                <p>How Kalshi helps developers discover what's possible faster and ultimately drive broader adoption of its prediction markets.</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Cognition</div>
-                <p>How Cognition scaled their documentation to mirror their product ethos</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Together AI</div>
-                <p>How Together AI scaled their documentation into a developer experience that mirrors their own ethos</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Laravel</div>
-                <p>How Laravel scaled world-class documentation across 10+ products</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Replit</div>
-                <p>Learn how Replit uses Mintlify to turn documentation into a fast, collaborative, and accessible workflow that scales beyond engineers</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Glean</div>
-                <p>How Glean unified its scattered documentation from Google Docs to Zendesk to custom markdown into a single branded hub</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Lovable</div>
-                <p>How Lovable scaled their onboarding and support with Mintlify's AI-native documentation</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Vercel</div>
-                <p>How Vercel scaled their API reference collection with Mintlify to meet the needs of their growing developer community</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Fidelity</div>
-                <p>Read more about how Fidelity meets enterprise-level documentation needs with Mintlify</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-            <div class="customer-card">
-                <div class="customer-logo">Anaconda</div>
-                <p>Anaconda freed its engineers from maintaining custom documentation infrastructure to focus on what matters</p>
-                <a href="#" class="card-link">Read story</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. CTA Cards Section -->
-    <section class="cta-cards-section">
-        <h2 class="section-title">Make documentation your winning advantage</h2>
-        <p class="section-subtitle">Join the leaders of tomorrow to future proof your documentation today.</p>
-        
-        <div class="cta-cards">
-            <div class="cta-card">
-                <div class="cta-card-image">
-                    <img src="https://via.placeholder.com/500x300/F0FDF4/22C55E?text=Pricing" alt="Pricing">
+            <div class="enterprise-icons-wrapper">
+                <div class="enterprise-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <h4>Build with partnership</h4>
+                    <p>Direct, white-glove access to our documentation experts. Dedicated migration support and guidance tailored to your setup, and elevated support SLAs.</p>
                 </div>
-                <h3>Pricing on your terms</h3>
-                <p>Pick the plan that works best for you</p>
-                <a href="#" class="card-link-primary">Pricing details</a>
-            </div>
-            <div class="cta-card">
-                <div class="cta-card-image">
-                    <img src="https://via.placeholder.com/500x300/F0FDF4/22C55E?text=Quickstart" alt="Quickstart">
-                </div>
-                <h3>Start building</h3>
-                <p>Deploy your documentation in minutes</p>
-                <a href="#" class="card-link-primary">Quickstart</a>
-            </div>
-        </div>
-
-        <div class="cta-buttons">
-            <button class="btn-cta-primary">Get started for free</button>
-            <button class="btn-cta-secondary">Get a demo</button>
-        </div>
-    </section>
-
-    <!-- 8. Resources/Guides Section (Replacing Changelog) -->
-    <section class="resources-section">
-        <h2 class="section-title">Resources & Guides</h2>
-        <div class="resources-grid">
-            <div class="resource-item">
-                <h4>Getting Started</h4>
-                <p>Learn the basics of setting up your documentation</p>
-                <a href="#" class="resource-link">View guide →</a>
-            </div>
-            <div class="resource-item">
-                <h4>API Reference</h4>
-                <p>Complete API documentation for developers</p>
-                <a href="#" class="resource-link">View docs →</a>
-            </div>
-            <div class="resource-item">
-                <h4>Components</h4>
-                <p>Explore available UI components</p>
-                <a href="#" class="resource-link">Browse →</a>
-            </div>
-            <div class="resource-item">
-                <h4>Best Practices</h4>
-                <p>Tips for creating great documentation</p>
-                <a href="#" class="resource-link">Learn more →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. Team/About Section -->
-    <section class="about-section">
-        <div class="about-content">
-            <div class="about-image">
-                <img src="https://via.placeholder.com/600x400/F0FDF4/22C55E?text=Mintlify+Team" alt="Mintlify Team">
-            </div>
-            <div class="about-text">
-                <h2>Built by documentation experts, for teams that care</h2>
-                <p>Our mission is to make documentation a strategic advantage for every company. Join our growing team.</p>
-                <a href="#" class="btn-secondary">View open positions</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 10. Final CTA -->
-    <section class="final-cta">
-        <h2>Ready to transform your documentation?</h2>
-        <p>Start building better docs today</p>
-        <div class="final-cta-buttons">
-            <button class="btn-final-primary">Get started for free</button>
-            <button class="btn-final-secondary">Schedule a demo</button>
-        </div>
-    </section>
-
-    <!-- 11. Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h4>EXPLORE</h4>
-                <a href="#">Startups</a>
-                <a href="#">Enterprise</a>
-                <a href="#">Switch</a>
-                <a href="#">OSS Program</a>
-            </div>
-            <div class="footer-column">
-                <h4>RESOURCES</h4>
-                <a href="#">Customers</a>
-                <a href="#">Blog</a>
-                <a href="#">Pricing</a>
-                <a href="#">Guides</a>
-                <a href="#">Feature Requests</a>
-            </div>
-            <div class="footer-column">
-                <h4>DOCUMENTATION</h4>
-                <a href="#">Getting Started</a>
-                <a href="#">API Reference</a>
-                <a href="#">Components</a>
-                <a href="#">Changelog</a>
-            </div>
-            <div class="footer-column">
-                <h4>COMPANY</h4>
-                <a href="#">Careers</a>
-                <a href="#">Wall of Love</a>
-            </div>
-            <div class="footer-column">
-                <h4>LEGAL</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Responsible Disclosure</a>
-                <a href="#">Terms Of Service</a>
-                <a href="#">Security</a>
-                <a href="#">DSR/DSAR</a>
-            </div>
-        </div>
-        
-        <div class="footer-security">
-            <p class="security-title">Backed By Enterprise-Grade Security</p>
-            <div class="security-badges">
-                <div class="badge-item">
-                    <img src="https://via.placeholder.com/80x80/FFFFFF/22C55E?text=SOC2" alt="SOC 2">
-                    <span>SOC II</span>
+                <div class="enterprise-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <h4>Compliance and access control</h4>
+                    <p>Compliant with SOC 2, and in the process for ISO/27001 and GDPR compliance to meet your internal and external data requirements. Secure access and provisioning with SAML-based SSO.</p>
                 </div>
             </div>
-        </div>
+        <div class="customer-story">
+            
 
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="#">Go to homepage</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-                <a href="#">Github</a>
-            </div>
-            <div class="footer-status">
-                <a href="#" class="status-link">All systems normal</a>
-            </div>
-            <p class="copyright">© 2026 Mintlify, Inc.</p>
+        </div>    
         </div>
-    </footer>
+    </section>
+
 </body>
 </html>
