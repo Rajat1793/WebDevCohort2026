@@ -64,6 +64,9 @@
     - [Understanding HTMl Tags and Elements](https://html-css-basics.hashnode.dev/understanding-html-tags-and-elements)
     - [CSS Selectors](https://html-css-basics.hashnode.dev/css-selectors-101)
 
+**Assignment:**
+    - [HTML Resume](https://rajat1793.github.io/WebDevCohort2026/assignments/week_1/html-resume/index.html)
+
 ### Day 6:
 **Topic:** CSS Continued (T Class)
 **Date:** 29th January 2026
@@ -84,3 +87,7 @@
 **Summary**
     In this class, we learned about CSS Grid techniques. We learned how to use Grid to create flexible and responsive layouts, including defining rows and columns, placing items, and using grid areas. We also discussed best practices for using Grid alongside Flexbox in web design.
     Also looked into Tailwind CSS and its utility-first approach to styling, tailwind is mobile first design
+
+**Assignment:**
+    - [Cursor Clone](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/cursor_homepage/index.html)
+    - [Mintlify Clone](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/mintlify_homepage/index.html)

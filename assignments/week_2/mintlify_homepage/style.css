@@ -150,6 +150,18 @@ header nav {
     font-size: 12px;
     font-weight: 400;
 }
+.hero-badge-img {
+    width: 18px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.read-arrow{
+    width: 10px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
 
 .hero-badge p {
     font-size: 14px;
@@ -244,14 +256,6 @@ form input::placeholder {
     align-items: center;
     padding: 20px 10px;
     color: var(--color-dark);
-}
-
-.logo-md {
-    width: 120px;
-}
-
-.logo-dark {
-    filter: brightness(0);
 }
 
 .logo-item {
@@ -380,6 +384,10 @@ form input::placeholder {
     font-size: 16px;
 }
 
+.enterprise-svg{
+    width: 32px;
+}
+
 .btn-explore {
     font-size: 16px;
     font-weight: 500;
@@ -473,6 +481,7 @@ form input::placeholder {
     justify-content: space-evenly;
     margin-bottom: 200px;
     padding: 0 24px;
+    filter: brightness(0) saturate(100%) invert(0.5);
 }
 
 .enterprise-logos img {
@@ -542,10 +551,6 @@ form input::placeholder {
 
 .bg-togetherai {
     background-image: url(./assets/togetherai.png);
-}
-
-.rotate-180 {
-    transform: rotate(180deg);
 }
 
 .image-container img {
@@ -627,6 +632,13 @@ form input::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.cta-card img{
+    border: 1px solid #c5c5c573;
+    width: 56px;
+    border-radius: 16px;
+    padding: 10px;
 }
 
 .cta-card .cta-card-icon {
@@ -765,14 +777,6 @@ footer .social-links .links p {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* New icon classes */
-.arrow-down {
-    display: inline-block;
-    font-size: 10px;
-    transform: rotate(-90deg);
-    transition: transform 0.15s ease-in-out;
 }
 
 .icon-users,

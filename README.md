@@ -48,5 +48,6 @@
 - [Git](https://git-scm.com/) – versioning
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) – structuring
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) – modular css
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – interactivity
 
 </br>
