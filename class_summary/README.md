@@ -91,3 +91,9 @@
 **Assignment:**
     - [Cursor Clone](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/cursor_homepage/index.html)
     - [Mintlify Clone](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/mintlify_homepage/index.html)
+
+### Day 9:
+**Topic:** Tailwind CSS Continued
+**Date:** 5th February 2026
+**Summary**
+    In this class, we continued our learning of Tailwind CSS. We learned about configuring Tailwind, customizing the default theme, and using plugins to extend Tailwind's functionality. We also learnedIn this class, we learned about Tailwind CSS techniques and its utility-first approach to styling. We learned how to use Tailwind CSS to rapidly build responsive and visually appealing web pages using pre-defined utility classes. We also discussed best practices for using Tailwind CSS in web design.
