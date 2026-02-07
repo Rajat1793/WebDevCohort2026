@@ -30,9 +30,9 @@ A single-page cursor.com homepage clone using HTML and CSS
 - CSS styling and layout techniques
 - Responsive design principles
 
-**📁 Project Files:** [week_2/cursor-homepage](./week_2/cursor-homepage/)
+**📁 Project Files:** [week_2/cursor-homepage](./week_2/cursor_homepage/)
 
-**🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/cursor-homepage/)
+**🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/cursor_homepage/)
 
 ### Assignment: Mintlify Homepage Clone
 A single-page mintlify.com homepage clone using HTML and CSS
@@ -42,9 +42,9 @@ A single-page mintlify.com homepage clone using HTML and CSS
 - CSS styling and layout techniques
 - Responsive design principles
 
-**📁 Project Files:** [week_2/mintlify-homepage](./week_2/mintlify-homepage/)
+**📁 Project Files:** [week_2/mintlify-homepage](./week_2/mintlify_homepage/)
 
-**🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/mintlify-homepage/)
+**🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/mintlify_homepage/)
 
 ---
 
