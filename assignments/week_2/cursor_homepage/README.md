@@ -2,6 +2,8 @@
 
 A pixel-perfect recreation of the Cursor homepage using HTML and CSS.
 
+![Project Preview](./screenshot/header.png)
+
 ## 💻 [Live Demo](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/cursor_homepage/index.html)
 
 ## 🚀 Features
@@ -13,6 +15,17 @@ A pixel-perfect recreation of the Cursor homepage using HTML and CSS.
 - Custom CursorGothic font family
 - Responsive grid layouts
 - Optimized and clean code
+
+## 🎨 Color Palette
+
+| Color | Hex Code | Usage |
+|-------|----------|-------|
+| Primary Background | `#14120B` | Main background color |
+| Secondary Background | `#1B1913` | Cards, sections |
+| Tertiary Background | `#201E18` | Nested elements |
+| Text Light | `#EDECEC` | Body text |
+| Text Secondary | `#949390` | Muted text |
+
 
 ## 🛠 Tech Stack
 
@@ -41,6 +54,12 @@ Simply open `index.html` in your browser, or use a live server:
 # VS Code Live Server
 Right-click on index.html → Open with Live Server
 ```
+
+## 📸 Screenshots
+
+![Desktop View](./screenshot/header.png)
+![Features](./screenshot/features.png)
+![Enterprise](./screenshot/testimonial.png)
 
 ## 📝 Credits
 
