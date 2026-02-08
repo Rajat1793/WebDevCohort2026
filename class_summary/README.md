@@ -97,3 +97,27 @@
 **Date:** 5th February 2026
 **Summary**
     In this class, we continued our learning of Tailwind CSS. We learned about configuring Tailwind, customizing the default theme, and using plugins to extend Tailwind's functionality. We also learnedIn this class, we learned about Tailwind CSS techniques and its utility-first approach to styling. We learned how to use Tailwind CSS to rapidly build responsive and visually appealing web pages using pre-defined utility classes. We also discussed best practices for using Tailwind CSS in web design.
+
+### Day 10:
+**Topic:** JavaScript Basics
+**Date:** 7th February 2026
+**Summary**
+    In this class, we started learning the basics of JavaScript with a help of a Furniture Store story. We looked at the working of JavaScript and how work is divided by different modules and functions.
+        Cutting a piece of wood - module
+        Cutting a piece of wood for framing - function
+        Framed product is sent to polishing - function
+        Polished product is sent to packaging - function
+        Quality check is done - function
+    All function require some space to work and that space is called execution context and whole process is managed by the Global Execution Context. To monitor the complete flow we need a manager to look into which is called Call Stack, each step in the process is tracked and managed by the Call Stack to ensure proper execution order. A complete work is done Global execution context and Call Stack and every function has its own execution context and whenever a function is called a new execution context is created for that function and it is added to the call stack and when the function execution is completed its execution context is removed from the call stack.
+    In javascript we also looked into different data types, variables, operators, conditional statements, loops, functions etc, also lokked into Hosting and scope.
+
+**Assignment:**
+    - [JS Conditionals](https://github.com/chaicodehq/js-conditionals-Rajat1793)
+    - [JS Lab](https://labs.chaicode.com/js)
+
+### Day 11:
+**Topic:** JavaScript Functions and Scope
+**Date:** 8th February 2026
+**Summary**
+    In this class, We also learned about the execution context and call stack in JavaScript, which are important for understanding how JavaScript code is executed. We also looked into different data types, variables, operators, conditional statements, loops, functions etc, also looked into Hosting and scope.
+    We also learned about JavaScript functions and scope. We covered function declarations, expressions, high order functions, forEach, map and arrow functions, as well as the concept of scope and how it affects variable accessibility. We also discussed best practices for writing clean and maintainable JavaScript code. 
