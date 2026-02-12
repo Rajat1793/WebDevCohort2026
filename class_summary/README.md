@@ -93,7 +93,7 @@
     - [Mintlify Clone](https://rajat1793.github.io/WebDevCohort2026/assignments/week_2/mintlify_homepage/index.html)
 
 ### Day 9:
-**Topic:** Tailwind CSS Continued
+**Topic:** Tailwind CSS Continued (T Class)
 **Date:** 5th February 2026
 **Summary**
     In this class, we continued our learning of Tailwind CSS. We learned about configuring Tailwind, customizing the default theme, and using plugins to extend Tailwind's functionality. We also learnedIn this class, we learned about Tailwind CSS techniques and its utility-first approach to styling. We learned how to use Tailwind CSS to rapidly build responsive and visually appealing web pages using pre-defined utility classes. We also discussed best practices for using Tailwind CSS in web design.
@@ -121,3 +121,29 @@
 **Summary**
     In this class, We also learned about the execution context and call stack in JavaScript, which are important for understanding how JavaScript code is executed. We also looked into different data types, variables, operators, conditional statements, loops, functions etc, also looked into Hosting and scope.
     We also learned about JavaScript functions and scope. We covered function declarations, expressions, high order functions, forEach, map and arrow functions, as well as the concept of scope and how it affects variable accessibility. We also discussed best practices for writing clean and maintainable JavaScript code. 
+
+**Assignment:**
+    - [JS Functions](https://github.com/chaicodehq/js-functions-Rajat1793)
+    - [JS Conditionals](https://github.com/chaicodehq/js-conditionals-Rajat1793)
+    - [JS DataTypes Foundation](https://github.com/chaicodehq/js-datatypes-foundation-Rajat1793)
+    - [JS DataTypes Intermediate](https://github.com/chaicodehq/js-datatypes-Rajat1793)
+    - [JS Loops](https://github.com/chaicodehq/js-loops-Rajat1793)
+    
+### Day 12:
+**Topic:** JavaScript Refresher (T Class)
+**Date:** 12th February 2026
+**Summary**
+    In this class, we had a refresher on JavaScript basics.
+    1. Specs
+    2. How to read manuals
+    3. Javascript Compatibility in different browsers
+    4. Hello world
+    5. Code structure 
+    6. Strict mode 
+    7. Variables 
+    8. Data types 
+    9. Type conversion
+    10. Operators
+    11. Conditional statements
+    12. Loops
+    13. Functions
