@@ -21,4 +21,21 @@ Code examples demonstrating CSS Flexbox concepts including flex containers, flex
 
 ---
 
+## 📅 14th February 2026
+
+### Topic: JavaScript Essentials
+Code examples demonstrating JavaScript basics including variables, data types, operators, and control structures.
+
+**Skills Covered:**
+- JavaScript fundamentals
+- Variables and data types
+- Operators and expressions
+- Control structures (if-else, switch, loops)
+
+**📁 Project Files:** [14feb/](./14feb/)
+
+**🔗 Live Demo:** [View Assignment](https://rajat1793.github.io/WebDevCohort2026/live_class_code/14feb/index.html)
+
+---
+
 *More live class code will be added as the course progresses.*

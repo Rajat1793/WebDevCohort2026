@@ -147,3 +147,15 @@
     11. Conditional statements
     12. Loops
     13. Functions
+
+### Day 13:
+**Topic:** JavaScript Essentials
+**Date:** 14th February 2026
+**Summary**
+    In this class, we covered some essential JavaScript concepts related to datatypes, console, number, string and there methods, arrays and their methods, objects and their methods, and some important concepts like NaN, Infinity, EPSILON, null and undefined.
+    We also code in live class and code is available [here]()
+
+**Assignment:**
+    1. How many primitive data types are there in JavaScript?
+    2. What is EPSILON in JavaScript?
+    3. What is the difference between null and undefined in Memory?
