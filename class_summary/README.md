@@ -159,3 +159,13 @@
     1. How many primitive data types are there in JavaScript?
     2. What is EPSILON in JavaScript?
     3. What is the difference between null and undefined in Memory?
+
+### Day 14:
+**Topic:** JavaScript Essentials Continued
+**Date:** 15th February 2026
+**Summary**
+    In this class, we continued our learning of JavaScript essentials.
+
+**Assignment:**
+    1. Read more about Array.of and Array.from methods
+    2.
