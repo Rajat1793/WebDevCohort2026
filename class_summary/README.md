@@ -206,4 +206,4 @@ Prototypes ->
 **Topic:** Object-Oriented JavaScript Continued
 **Date:** 22nd February 2026
 **Summary**
-    In this class, we continued our learning of Object-Oriented JavaScript. We covered more advanced topic like classes
+    In this class, we continued our learning of Object-Oriented JavaScript. We covered more advanced topic like classes, symbols, error handling, promises, callbacks.
