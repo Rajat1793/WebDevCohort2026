@@ -168,4 +168,42 @@
 
 **Assignment:**
     1. Read more about Array.of and Array.from methods
-    2.
+
+### Day 15:
+**Topic:** JavaScript in Action (T Class)
+**Date:** 19th February 2026
+**Summary**
+
+
+### Day 16:
+**Topic:** Object-Oriented JavaScript
+**Date:** 21st February 2026
+**Summary**
+This keyword ->
+    Global state of this keyword depends on where its is executed, if its executed in browser then it will refer to window object and if its executed in node environment then it will refer to global object. If we use "use strict" then this keyword will be undefined.
+    A regular nested function does not have access to the this keyword of its parent function. To solve this problem, we can use arrow functions, which do not have their own this and instead inherit it from the parent scope. This allows us to access the this keyword of the parent function even inside nested functions.
+
+Detached mode ->
+    when a function is called without an object reference, it is called in detached mode. In this mode, the this keyword refers to the global object (window in browsers) or is undefined in strict mode. This can lead to unexpected behavior if we are not careful when calling functions.
+
+call apply bind -> 
+    call for others
+    apply for array
+    bind for creating a new function with a specific this value and arguments.
+
+new keyword ->
+    The new keyword is used to create an instance of a constructor function. When we use new, it creates a new object, sets the this keyword to that object, and executes the constructor function to initialize the object.
+
+Prototypes ->
+    Prototypes are a fundamental part of JavaScript's object system. Every JavaScript object has a prototype, which is another object that it inherits properties and methods from. This allows for a powerful and flexible way to create objects and share functionality.
+
+**Assignment:**
+    1. Create our own forEach, map, filter, reduce methods for arrays.
+    2. Create a pollyfill for all array methods (Flat, flatMap, slice, splice, push, pop, shift, unshift etc)
+
+
+### Day 17:
+**Topic:** Object-Oriented JavaScript Continued
+**Date:** 22nd February 2026
+**Summary**
+    In this class, we continued our learning of Object-Oriented JavaScript. We covered more advanced topic like classes
