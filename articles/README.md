@@ -66,7 +66,7 @@
 
   <a href="https://networkbasic101.hashnode.dev/tcp-vs-udp">
       <p align=center>
-      <img width = "500px" alt="Curl Command" src="./assets/article5.png">
+      <img width = "500px" alt="TCP vs UDP" src="./assets/article5.png">
     <p>
   </a>
 
@@ -74,7 +74,7 @@
 
   <a href="https://networkbasic101.hashnode.dev/how-tcp-works">
       <p align=center>
-      <img width = "500px" alt="Curl Command" src="./assets/article6.png">
+      <img width = "500px" alt="TCP 3-way Handshake" src="./assets/article6.png">
     <p>
   </a>
 
@@ -117,5 +117,14 @@
       <img width = "500px" alt="Variables and Data Types in JavaScript" src="./assets/article11.png">
     <p>
   </a>
+
+### <a id="javascript-operators"></a>[JavaScript Operators](https://javascriptguideforbegineer.hashnode.dev/javascript-operators)
+
+  <a href="https://javascriptguideforbegineer.hashnode.dev/javascript-operators">
+      <p align=center>
+      <img width = "500px" alt="JavaScript Operators" src="./assets/article12.png">
+    <p>
+  </a>
+  
 
 
