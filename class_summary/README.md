@@ -207,3 +207,9 @@ Prototypes ->
 **Date:** 22nd February 2026
 **Summary**
     In this class, we continued our learning of Object-Oriented JavaScript. We covered more advanced topic like classes, symbols, error handling, promises, callbacks.
+
+### Day 18:
+**Topic:** You Don't Know JS (T Class)
+**Date:** 26th February 2026
+**Summary**
+    In this clas, we did a revision of Javascript Concepts, objects-methods, garbage collection, new operator, optional-chaining, symbol, object to primitive conversion,
