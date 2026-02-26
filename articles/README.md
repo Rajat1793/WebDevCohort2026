@@ -110,3 +110,12 @@
     <p>
   </a>
 
+### <a id="javascript-variables"></a>[Variables and Data Types in JavaScript](https://javascriptguideforbegineer.hashnode.dev/understanding-variables-and-data-types-in-javascript)
+
+  <a href="https://javascriptguideforbegineer.hashnode.dev/understanding-variables-and-data-types-in-javascript">
+      <p align=center>
+      <img width = "500px" alt="Variables and Data Types in JavaScript" src="./assets/article11.png">
+    <p>
+  </a>
+
+
