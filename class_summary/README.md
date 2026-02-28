@@ -212,4 +212,13 @@ Prototypes ->
 **Topic:** You Don't Know JS (T Class)
 **Date:** 26th February 2026
 **Summary**
-    In this clas, we did a revision of Javascript Concepts, objects-methods, garbage collection, new operator, optional-chaining, symbol, object to primitive conversion,
+    In this clas, we did a revision of Javascript Concepts, objects-methods, garbage collection, new operator, optional-chaining, symbol, object to primitive conversion
+
+### Day 19:
+**Topic:** Async JavaScript
+**Date:** 28th February 2026
+**Summary**
+    In this class, we learned about promises,async-await, event loop, microtask queue, macrotask queue, and how JavaScript handles asynchronous operations.
+
+**Assignment:**
+    1. All methods of promises
