@@ -222,3 +222,11 @@ Prototypes ->
 
 **Assignment:**
     1. All methods of promises
+
+### Day 20:
+**Topic:** Modern Async Patterns
+**Date:** 1st March 2026
+**Summary**
+    In this class, we continued our learning of async JavaScript. We covered more modern async patterns like closures,DOM manipulations,
+    what to clear javascript interview, prepare queues, promises, closures 
+    

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TO-DO List</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 24px;
+    }
+
+    div:first-of-type {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+
+    #todoInput {
+        flex: 1;
+        padding: 12px 16px;
+        font-size: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    #todoInput:focus {
+        border-color: #6c63ff;
+    }
+
+    #createButton {
+        padding: 12px 20px;
+        font-size: 1rem;
+        background-color: #6c63ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    #createButton:hover {
+        background-color: #574fd6;
+    }
+
+    #todoContainer {
+        list-style: none;
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #todoContainer li {
+        background-color: white;
+        padding: 14px 18px;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: #333;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        transition: background-color 0.2s, transform 0.1s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #todoContainer li::before {
+        content: '✓';
+        color: #6c63ff;
+        font-weight: bold;
+    }
+
+    #todoContainer li:hover {
+        background-color: #ffe5e5;
+        transform: scale(1.01);
+    }
+</style>
+</head>
+<body>
+<h1>TO-DO List</h1>
+<div>
+    <input type="text" id="todoInput" placeholder="Enter your task here">
+    <button id="createButton">Add Task</button>
+</div>
+<div>
+    <ul id="todoContainer">
+    </ul>
+</div>    
+<script>
+    const createButtonRef = document.getElementById('createButton');
+    const todoInputRef = document.getElementById('todoInput');  
+    const todoContainerRef = document.getElementById('todoContainer');
+
+    (async () => {
+        const response = await fetch('https://api.freeapi.app/api/v1/public/quotes', { method: 'GET' });
+        const data = await response.json(); // JSON => object
+        console.log(data);
+        for (const obj of data.data.data) {
+            const li = document.createElement('li');
+            li.innerText = obj.content;
+            li.addEventListener('click', function(){
+                li.remove();
+            });
+            todoContainerRef.appendChild(li);
+        }
+    })();
+
+    createButtonRef.addEventListener('click', function(){
+        const value = todoInputRef.value;
+        console.log(value);
+        const li = document.createElement('li');
+        li.innerText = value;
+        li.addEventListener('click', function(){
+            li.remove();
+        })
+        todoContainerRef.appendChild(li);
+        todoInputRef.value = '';
+    }) 
+</script>
+
+</body>
+</html>
