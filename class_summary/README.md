@@ -230,3 +230,59 @@ Prototypes ->
     In this class, we continued our learning of async JavaScript. We covered more modern async patterns like closures,DOM manipulations,
     what to clear javascript interview, prepare queues, promises, closures 
     
+### Day 21:
+**Topic:** You Don't Know JS Day 2 (T Class)
+**Date:** 5th March 2026
+**Summary**
+    In this class, we continued our revision of Javascript Concepts, objects-methods, garbage collection and date object, numbers,arrays, strings, arrays, functions
+    - Sorting in String and Number Arrays (lexicographical sorting)
+    - Iterables
+    - Made an object iterable
+    - new Map()
+    - new Set()
+    - Weak maps
+    - Weak sets
+    - Date and Time using Piyush sir's birth date
+
+### Day 22:
+**Topic:** Backend Basics
+**Date:** 7th March 2026
+**Summary**
+    In this class, we were introduced to the basics of backend development. We learned about HTTP methods, status codes, 
+    - GET (to read/retrieve data, cachable by the browser and CDN)
+        - INDEMPOTENT (multiple requests will have the same effect as a single request)
+    - POST (to create data, not cachable by the browser and CDN)
+        - NOT INDEMPOTENT (multiple requests will have different effects)
+    - PUT (replace/update a resource completely, sends full object)
+    - PATCH (partically update a resource send only changed fields)
+    - DELETE (remove a resource)
+    - HEAD (same as GET but returnes only headers, not body)
+    - OPTIONS (Preflight/ capability check CORS)
+
+### Day 23:
+**Topic:** Backend with Typescript
+**Date:** 8th March 2026
+**Summary**
+    In this class, we continued our learning of backend development with a focus on using TypeScript-> Backend with typescript
+    -> Plain server making
+    -> Express JS
+    -> TypeScript ( dependencies )
+    -> gitignore, tsc-watch
+    -> Typing for npm packages 
+    -> Code Clubbing
+    -> Todo App not through MVC
+    -> ZOD validation
+
+### Day 24:
+**Topic:** DOM Manipulation (T Class)
+**Date:** 12th March 2026
+**Summary**
+    In this class, we learned about DOM manipulation using JavaScript. We covered how to select elements from the DOM, how to create and modify elements, and how to handle events.
+    HTML Collection -> HTML elements (getElementsByTagName, getElementsByClassName, getElementsByName)
+    NodeList -> Collection of DOM nodes (.querySelectorAll, .forEach))
+    NodeList are mostly Static but HTML collection are always live, means if we add a new element to the DOM then it will be reflected in HTML collection but not in NodeList.
+**Assignment:**
+    1. NodeList and HTML Collection difference
+    2. DOMTokenList
+    3. Update the darkmode text
+    4. Add a edit button to dynamic list when user click twice on the lost item and update the item when user click outside the item or press enter key

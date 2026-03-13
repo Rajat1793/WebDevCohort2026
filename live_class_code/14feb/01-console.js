@@ -11,3 +11,7 @@ console.log("Suspect: ", suspectName, "| Age: ", suspectAge);
 console.warn("Warning: Finger Print found")
 console.error("Error: Finger Print not found")
 
+function sayHi() {
+  console.log(this);
+}
+sayHi();
