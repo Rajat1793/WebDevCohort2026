@@ -286,3 +286,16 @@ Prototypes ->
     2. DOMTokenList
     3. Update the darkmode text
     4. Add a edit button to dynamic list when user click twice on the lost item and update the item when user click outside the item or press enter key
+
+### Day 25:
+**Topic:** Node.js Internals
+**Date:** 14th March 2026
+**Summary**
+    In this class, we learned about the internals of Node.js, including its architecture, and how Node.js is created on top of the V8 javascript engine.
+    V8 + C++ + libUV = Node.js
+    Level of execution in Node.js ->
+    Process -> Main Thread -> Init Project -> Top Level Code -> import Statements -> Event Callback register -> Start Event loop (Expired Callback() -> IO polling() -> setImmediate() -> close callbacks()) -> Microtask Queue
+    libUV -> event loop, thread pool, async I/O operations
+**Assignment:*
+    1. Process.nextTick() at which level it is executed in Node.js execution flow?
+    2. What is the difference between setImmediate() and process.nextTick()?
