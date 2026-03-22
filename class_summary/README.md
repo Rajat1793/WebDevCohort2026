@@ -304,3 +304,40 @@ Prototypes ->
 **Topic:** Express
 **Date:** 15th March 2026
 **Summary**
+    In this class, we were introduced to Express.js, a popular web application framework for Node.js. We learned how to set up an Express server, define routes, handle requests and responses, and connect to a database.
+
+### Day 27:
+**Topic:** DOM Manipulation and Event Handling (T Class)
+**Date:** 19th March 2026
+**Summary**
+    In this class, we continued our learning of DOM manipulation and event handling. We covered more advanced topics like event delegation, event bubbling, and capturing. We also learned about best practices for handling events in JavaScript.
+**Assignment:**
+    1. Custom CSS just like TailwindCSS
+
+### Day 28:
+**Topic:** Building a REST API with Express
+**Date:** 21st March 2026
+**Summary**
+    In this class, we learned how to build a REST API using Express.js. We covered how to set up an Express server, define routes, handle requests and responses, and connect to a database. We also discussed best practices for building RESTful APIs and how to test our API endpoints.
+    Pointers:
+    1. We used Mongoose to connect to express and MongoDB database as it saves us from obvious errors and provides us with a lot of useful methods to interact with the database.
+    2. ORM (Object Relational Mapping)
+    3. ODM (Object Document Mapping)
+    Data validators: 
+        1. Joi (for JavaScript)
+        2. Zod (for TypeScript)
+        3. Yup (for JavaScript)
+        4. Arktype (for TypeScript)
+
+    Code Structure:
+    - src
+        - controllers (Business logic)
+        - models (Database schemas)
+        - routes (API endpoints)
+        - utils (Helper functions)
+
+### Day 29:
+**Topic:** Building a REST API with Express Continued
+**Date:** 22nd March 2026
+**Summary**
+    In this class, we continued our learning of building a REST API with Express.js. We learned about the importance of separating concerns in our code and how to structure our Express applications using controllers, models, and routes. We also looked into the authorization and authentication of API endpoints using JWT (JSON Web Tokens) and how to implement it in our Express applications.
