@@ -328,7 +328,7 @@ Prototypes ->
         2. Zod (for TypeScript)
         3. Yup (for JavaScript)
         4. Arktype (for TypeScript)
-
+    DTO -> Data Tansfer Object is a concept and JOI, ZOD, Yup, Arktype are libraries to implement that concept in our code.
     Code Structure:
     - src
         - controllers (Business logic)
@@ -341,3 +341,15 @@ Prototypes ->
 **Date:** 22nd March 2026
 **Summary**
     In this class, we continued our learning of building a REST API with Express.js. We learned about the importance of separating concerns in our code and how to structure our Express applications using controllers, models, and routes. We also looked into the authorization and authentication of API endpoints using JWT (JSON Web Tokens) and how to implement it in our Express applications.
+
+### Day 30:
+**Topic:** DOM Manipulation and Event Handling (T Class)
+**Date:** 26th March 2026
+**Summary**
+    In this class, we continued our learning of DOM manipulation and event handling. We covered more advanced topics like event delegation, event bubbling, and capturing. We also learned about best practices for handling events in JavaScript.
+
+### Day 31:
+**Topic:** Authentication and Authorization
+**Date:** 28th March 2026
+**Summary**
+    In this class, we learned about authentication and authorization in web applications. We covered different authentication methods like session-based authentication, token-based authentication, and OAuth. We also learned how to implement authentication and authorization in our Express applications using JWT (JSON Web Tokens).
