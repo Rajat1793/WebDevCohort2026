@@ -14,11 +14,12 @@ try {
       isbooked INT DEFAULT 0
     );
   `);
-  // seed 20 seats only if table is empty
+  // seed only if table is empty
   const { rowCount } = await pool.query("SELECT 1 FROM seats LIMIT 1");
   if (rowCount === 0) {
-    await pool.query("INSERT INTO seats (isbooked) SELECT 0 FROM generate_series(1, 20)");
-    console.log("✅  seats table created and seeded with 20 rows");
+    const seatCount = parseInt(process.env.SEAT_COUNT) || 50;
+    await pool.query(`INSERT INTO seats (isbooked) SELECT 0 FROM generate_series(1, ${seatCount})`);
+    console.log(`✅  seats table created and seeded with ${seatCount} rows`);
   } else {
     console.log("✅  seats table already exists");
   }
