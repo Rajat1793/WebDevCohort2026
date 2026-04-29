@@ -1,7 +1,7 @@
 {
-  "name": "boxcast",
-  "version": "1.0.0",
-  "description": "Real-time collaborative grid — everyone sees the same wall of boxes",
+  "name": "million-checkboxes",
+  "version": "2.0.0",
+  "description": "Real-time 1 000 000 checkbox grid — Redis bitmap, WebSocket, OAuth 2.0, custom rate limiting",
   "type": "module",
   "main": "server.js",
   "scripts": {
@@ -9,7 +9,11 @@
     "dev": "node --watch server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "ws": "^8.17.0"
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ioredis": "^5.4.2",
+    "jsonwebtoken": "^9.0.2",
+    "ws": "^8.18.1"
   }
 }

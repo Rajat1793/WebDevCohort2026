@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Million Checkboxes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ── Navbar ──────────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-left">
+      <div class="logo-icon"><span></span><span></span><span></span><span></span></div>
+      <span class="logo-text">MILLION CHECKBOXES</span>
+    </div>
+
+    <div class="nav-center">
+      <span id="checked-count">0</span> / 1,000,000 checked
+      &nbsp;&middot;&nbsp;
+      <span id="user-count">0</span> online
+    </div>
+
+    <div class="nav-right">
+      <div id="user-info" class="user-info hidden">
+        <span id="user-name"></span>
+        <button id="logout-btn" class="btn btn-sm">Logout</button>
+      </div>
+      <button id="login-btn" class="btn btn-accent hidden" onclick="showAuthModal('login')">Sign In</button>
+      <div class="status-pill" id="status-pill">
+        <div class="status-dot"></div>
+        <span id="status-text">connecting&hellip;</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Auth Modal ──────────────────────────────────────────────── -->
+  <div id="auth-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h2 id="auth-modal-title">Sign In</h2>
+      <form id="auth-form" autocomplete="off">
+        <div id="name-field" class="form-field hidden">
+          <label for="auth-name">Name</label>
+          <input type="text" id="auth-name" placeholder="Your name" />
+        </div>
+        <div class="form-field">
+          <label for="auth-email">Email</label>
+          <input type="email" id="auth-email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-field">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" placeholder="••••••••" minlength="6" required />
+        </div>
+        <p id="auth-error" class="auth-error hidden"></p>
+        <button type="submit" class="btn btn-accent btn-full" id="auth-submit-btn">Sign In</button>
+      </form>
+      <p class="auth-switch">
+        <span id="auth-switch-text">Don't have an account?</span>
+        <a href="#" id="auth-switch-link" onclick="toggleAuthMode(event)">Register</a>
+      </p>
+      <button class="modal-close" onclick="hideAuthModal()">&times;</button>
+    </div>
+  </div>
+
+  <!-- ── Main content ────────────────────────────────────────────── -->
+  <main>
+    <!-- Auth banner for anonymous users -->
+    <div id="auth-banner" class="auth-banner hidden">
+      Sign in to toggle checkboxes. Anonymous users have read-only access.
+      <button class="btn btn-accent btn-sm" onclick="showAuthModal('login')">Sign in</button>
+    </div>
+
+    <!-- Grid toolbar -->
+    <div class="toolbar">
+      <span class="toolbar-pos">
+        Row <span id="row-indicator">1</span> &middot; Col <span id="col-indicator">1</span>
+      </span>
+      <div class="toolbar-jump">
+        <input type="number" id="jump-input" min="0" max="999999" placeholder="index (0 – 999 999)" />
+        <button id="jump-btn" class="btn btn-sm">Jump</button>
+      </div>
+    </div>
+
+    <!-- Canvas grid inside a scrollable container -->
+    <div class="grid-area">
+      <div id="scroll-container" class="scroll-container">
+        <div id="scroll-inner">
+          <canvas id="grid-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">
+      click a cell to toggle &middot; scroll to explore &middot; open two tabs to see real-time sync
+    </p>
+  </main>
+
+  <!-- Cooldown popup — outside main so flex alignment doesn't interfere -->
+  <div id="cooldown-popup" class="cooldown-popup hidden">
+    <span class="cooldown-icon">⏳</span>
+    <span>Too fast! Wait <strong id="cooldown-timer">5</strong>s cooldown...</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
