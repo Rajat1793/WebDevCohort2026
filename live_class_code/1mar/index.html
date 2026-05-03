@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="clickButton">Click Me</button>
+    <script>
+        // console.log(window.alert("This is alert"));
+
+        let buttonRef = window.document.getElementById('clickButton');
+
+        // buttonRef.remove()
+        // buttonRef = null; // making it null so that it can be garbage collected (memory leakage if not removed)
+
+        buttonRef.style.backgroundColor = "pink";
+        buttonRef.onclick = function(){
+            console.log('Kuch toh karo');;
+        }
+
+        buttonRef.addEventListener('click', onClickHandler);
+
+    </script>
+</body>
+</html>

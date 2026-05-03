@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChaiTailwind Playground</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Segoe UI", system-ui, sans-serif; margin: 0; background: #dad7cd; }
+    code { font-family: "Courier New", monospace; font-size: 0.85em; }
+    button, input { font-family: inherit; }
+  </style>
+</head>
+<body>
+
+<header class="chai-bg-royalblue chai-text-white chai-p-40 chai-text-center">
+  <h1 class="chai-fs-48 chai-fw-700 chai-m-0">ChaiTailwind</h1>
+  <p class="chai-fs-18 chai-mt-10 chai-mb-24" style="opacity:0.85">
+    A utility-first CSS engine written in vanilla JavaScript.
+    Write <code>chai-p-20</code> instead of CSS.
+  </p>
+  <div class="chai-flex chai-justify-center chai-gap-10 chai-flex-wrap">
+    <span class="chai-bg-white chai-text-royalblue chai-px-16 chai-py-6 chai-rounded-full chai-fs-13 chai-bold">DOM Manipulation</span>
+    <span class="chai-bg-white chai-text-royalblue chai-px-16 chai-py-6 chai-rounded-full chai-fs-13 chai-bold">Pattern Parsing</span>
+    <span class="chai-bg-white chai-text-royalblue chai-px-16 chai-py-6 chai-rounded-full chai-fs-13 chai-bold">Zero Dependencies</span>
+  </div>
+</header>
+
+<main class="chai-mx-auto chai-p-32" style="max-width: 1000px;">
+
+  <!-- HOW IT WORKS -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">How It Works</h2>
+    <div class="chai-flex chai-gap-16 chai-flex-wrap">
+
+      <div class="chai-flex-1 chai-bg-white chai-p-24 chai-rounded-12" style="min-width:200px">
+        <div class="chai-bg-royalblue chai-text-white chai-w-40 chai-h-40 chai-rounded-full chai-flex chai-items-center chai-justify-center chai-fs-18 chai-bold chai-mb-12">1</div>
+        <h3 class="chai-m-0 chai-mb-8 chai-fs-16">Scan the DOM</h3>
+        <p class="chai-m-0 chai-text-gray chai-fs-14"><code>querySelectorAll('*')</code> gets every element. We filter for classes starting with <code>chai-</code>.</p>
+      </div>
+
+      <div class="chai-flex-1 chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md" style="min-width:200px">
+        <div class="chai-bg-orange chai-text-white chai-w-40 chai-h-40 chai-rounded-full chai-flex chai-items-center chai-justify-center chai-fs-18 chai-bold chai-mb-12">2</div>
+        <h3 class="chai-m-0 chai-mb-8 chai-fs-16">Parse Class Names</h3>
+        <p class="chai-m-0 chai-text-gray chai-fs-14">Split by <code>-</code>. <code>chai-p-20</code> gives prefix <code>p</code> and value <code>20</code>. Look up <code>p</code> in config map to get <code>padding</code>.</p>
+      </div>
+
+      <div class="chai-flex-1 chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md" style="min-width:200px">
+        <div class="chai-bg-mediumseagreen chai-text-white chai-w-40 chai-h-40 chai-rounded-full chai-flex chai-items-center chai-justify-center chai-fs-18 chai-bold chai-mb-12">3</div>
+        <h3 class="chai-m-0 chai-mb-8 chai-fs-16">Apply Inline Styles</h3>
+        <p class="chai-m-0 chai-text-gray chai-fs-14"><code>Object.assign(el.style, styles)</code> sets the inline style. No CSS file needed at all.</p>
+      </div>
+
+      <div class="chai-flex-1 chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md" style="min-width:200px">
+        <div class="chai-bg-darkorchid chai-text-white chai-w-40 chai-h-40 chai-rounded-full chai-flex chai-items-center chai-justify-center chai-fs-18 chai-bold chai-mb-12">4</div>
+        <h3 class="chai-m-0 chai-mb-8 chai-fs-16">Watch for Changes</h3>
+        <p class="chai-m-0 chai-text-gray chai-fs-14">A <code>MutationObserver</code> fires when new nodes appear. Dynamically created elements are styled automatically.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- TWO PARSING STRATEGIES -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">The Two Parsing Strategies</h2>
+    <div class="chai-flex chai-gap-16 chai-flex-wrap">
+
+      <div class="chai-flex-1 chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md" style="min-width:280px">
+        <div class="chai-flex chai-items-center chai-gap-10 chai-mb-16">
+          <span class="chai-bg-royalblue chai-text-white chai-px-12 chai-py-4 chai-rounded-full chai-fs-12 chai-bold">DYNAMIC MAP</span>
+          <span class="chai-text-gray chai-fs-13">prefix to CSS property</span>
+        </div>
+        <code style="display:block; background:#f8f8f8; padding:16px; border-radius:8px; line-height:2; font-size:13px;">
+          chai-p-20    => padding: 20px<br>
+          chai-bg-red  => backgroundColor: red<br>
+          chai-fs-18   => fontSize: 18px<br>
+          chai-bw-2    => borderWidth: 2px<br>
+          chai-p-10-20 => padding: 10px 20px
+        </code>
+        <p class="chai-text-gray chai-fs-13 chai-mb-0 chai-mt-12">Split on <code>-</code>, look up CSS property, add <code>px</code> if numeric.</p>
+      </div>
+
+      <div class="chai-flex-1 chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md" style="min-width:280px">
+        <div class="chai-flex chai-items-center chai-gap-10 chai-mb-16">
+          <span class="chai-bg-darkorchid chai-text-white chai-px-12 chai-py-4 chai-rounded-full chai-fs-12 chai-bold">FIXED MAP</span>
+          <span class="chai-text-gray chai-fs-13">exact class to style object</span>
+        </div>
+        <code style="display:block; background:#f8f8f8; padding:16px; border-radius:8px; line-height:2; font-size:13px;">
+          chai-flex            => display: flex<br>
+          chai-justify-between => justifyContent: space-between<br>
+          chai-items-center    => alignItems: center<br>
+          chai-rounded-full    => borderRadius: 9999px<br>
+          chai-shadow-lg       => boxShadow: 0 10px ...
+        </code>
+        <p class="chai-text-gray chai-fs-13 chai-mb-0 chai-mt-12">Needed because <code>space-between</code> has a <code>-</code> that would break the dynamic parser.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SPACING -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Spacing</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+      <p class="chai-text-gray chai-mt-0 chai-fs-14">
+        <code>chai-p-{n}</code> = padding |
+        <code>chai-m-{n}</code> = margin |
+        <code>chai-p-8-24</code> = padding: 8px 24px |
+        <code>chai-px-{n}</code> = horizontal padding |
+        <code>chai-py-{n}</code> = vertical padding
+      </p>
+      <div class="chai-flex chai-gap-12 chai-flex-wrap chai-items-center">
+        <div class="chai-bg-lightblue chai-p-8  chai-rounded-4 chai-fs-13 chai-text-center">chai-p-8</div>
+        <div class="chai-bg-lightblue chai-p-16 chai-rounded-4 chai-fs-13 chai-text-center">chai-p-16</div>
+        <div class="chai-bg-lightblue chai-p-24 chai-rounded-4 chai-fs-13 chai-text-center">chai-p-24</div>
+        <div class="chai-bg-peachpuff chai-p-8-24 chai-rounded-4 chai-fs-13 chai-text-center">chai-p-8-24</div>
+        <div class="chai-bg-peachpuff chai-pt-24 chai-pb-4 chai-px-16 chai-rounded-4 chai-fs-13 chai-text-center">pt-24 pb-4 px-16</div>
+        <div class="chai-bg-lavender  chai-py-16 chai-px-8 chai-rounded-4 chai-fs-13 chai-text-center">py-16 px-8</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COLORS -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Colors</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+      <p class="chai-text-gray chai-mt-0 chai-fs-14">
+        Use <code>chai-bg-{color}</code> and <code>chai-text-{color}</code> with any CSS named color.
+        The engine does not hardcode colors, any valid CSS name works.
+      </p>
+      <div class="chai-flex chai-gap-10 chai-flex-wrap">
+        <div class="chai-bg-tomato         chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">tomato</div>
+        <div class="chai-bg-royalblue      chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">royalblue</div>
+        <div class="chai-bg-mediumseagreen chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">seagreen</div>
+        <div class="chai-bg-darkorchid     chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">darkorchid</div>
+        <div class="chai-bg-orange         chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">orange</div>
+        <div class="chai-bg-teal           chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">teal</div>
+        <div class="chai-bg-crimson        chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">crimson</div>
+        <div class="chai-bg-coral          chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">coral</div>
+        <div class="chai-bg-slateblue      chai-text-white chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">slateblue</div>
+        <div class="chai-bg-gold           chai-text-black chai-p-12-20 chai-rounded-8 chai-bold chai-fs-14">gold</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TYPOGRAPHY -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Typography</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+
+      <div class="chai-bg-lemonchiffon chai-bw-1 chai-border-solid chai-bc-gold chai-p-12-16 chai-rounded-8 chai-mb-20 chai-fs-13">
+        <strong>Special parsing case:</strong>
+        <code>chai-text-red</code> gives <code>color: red</code>, but
+        <code>chai-text-center</code> gives <code>text-align: center</code>.
+        The parser checks if the value is a text-align keyword before treating it as a color name.
+      </div>
+
+      <p class="chai-fs-12 chai-m-4">chai-fs-12  Tiny text</p>
+      <p class="chai-fs-14 chai-m-4">chai-fs-14  Small</p>
+      <p class="chai-fs-16 chai-m-4">chai-fs-16  Base</p>
+      <p class="chai-fs-22 chai-m-4">chai-fs-22  Large</p>
+      <p class="chai-fs-36 chai-bold chai-m-4">chai-fs-36 + chai-bold</p>
+
+      <div class="chai-flex chai-gap-12 chai-mt-16 chai-flex-wrap">
+        <div class="chai-text-left   chai-bg-lightgray chai-p-10 chai-rounded-4 chai-fs-13" style="min-width:110px">chai-text-left</div>
+        <div class="chai-text-center chai-bg-lightgray chai-p-10 chai-rounded-4 chai-fs-13" style="min-width:110px">chai-text-center</div>
+        <div class="chai-text-right  chai-bg-lightgray chai-p-10 chai-rounded-4 chai-fs-13" style="min-width:110px">chai-text-right</div>
+      </div>
+
+      <div class="chai-flex chai-gap-12 chai-mt-12 chai-flex-wrap">
+        <span class="chai-italic      chai-bg-lightgray chai-p-8-12 chai-rounded-4 chai-fs-13">chai-italic</span>
+        <span class="chai-underline   chai-bg-lightgray chai-p-8-12 chai-rounded-4 chai-fs-13">chai-underline</span>
+        <span class="chai-uppercase   chai-bg-lightgray chai-p-8-12 chai-rounded-4 chai-fs-13">chai-uppercase</span>
+        <span class="chai-capitalize  chai-bg-lightgray chai-p-8-12 chai-rounded-4 chai-fs-13">chai-capitalize text</span>
+        <span class="chai-line-through chai-bg-lightgray chai-p-8-12 chai-rounded-4 chai-fs-13">chai-line-through</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- BORDERS -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Borders and Radius</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+      <p class="chai-text-gray chai-mt-0 chai-fs-14">
+        <code>chai-bw-2</code> = border-width,
+        <code>chai-border-solid</code> = border-style (dynamic!),
+        <code>chai-bc-royalblue</code> = border-color,
+        <code>chai-rounded-8</code> = border-radius
+      </p>
+      <div class="chai-flex chai-gap-16 chai-flex-wrap chai-items-center">
+        <div class="chai-p-16 chai-bw-2 chai-border-solid  chai-bc-royalblue chai-fs-13 chai-rounded-4">solid</div>
+        <div class="chai-p-16 chai-bw-2 chai-border-dashed chai-bc-tomato    chai-fs-13 chai-rounded-4">dashed</div>
+        <div class="chai-p-16 chai-bw-2 chai-border-dotted chai-bc-mediumseagreen chai-fs-13 chai-rounded-4">dotted</div>
+        <div class="chai-p-16 chai-bw-2 chai-border-solid  chai-bc-slategray chai-rounded-8  chai-fs-13">rounded-8</div>
+        <div class="chai-p-16 chai-bw-2 chai-border-solid  chai-bc-slategray chai-rounded-20 chai-fs-13">rounded-20</div>
+        <div class="chai-bg-royalblue chai-text-white chai-p-12-24 chai-rounded-full chai-fs-13 chai-bold">rounded-full</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FLEXBOX -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Flexbox Layout</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+      <p class="chai-text-gray chai-mt-0 chai-fs-14">
+        All in the <strong>FIXED MAP</strong> because values like <code>space-between</code> and <code>flex-start</code>
+        contain hyphens that would confuse the dynamic parser which splits on <code>-</code>.
+      </p>
+
+      <p class="chai-fs-13 chai-text-gray chai-mb-4">chai-flex + chai-justify-between</p>
+      <div class="chai-flex chai-justify-between chai-bg-aliceblue chai-p-12 chai-rounded-8 chai-mb-16">
+        <div class="chai-bg-royalblue chai-text-white chai-p-8-16 chai-rounded-4 chai-fs-13">A</div>
+        <div class="chai-bg-royalblue chai-text-white chai-p-8-16 chai-rounded-4 chai-fs-13">B</div>
+        <div class="chai-bg-royalblue chai-text-white chai-p-8-16 chai-rounded-4 chai-fs-13">C</div>
+      </div>
+
+      <p class="chai-fs-13 chai-text-gray chai-mb-4">chai-flex + chai-justify-center + chai-gap-16</p>
+      <div class="chai-flex chai-justify-center chai-gap-16 chai-bg-aliceblue chai-p-12 chai-rounded-8 chai-mb-16">
+        <div class="chai-bg-orange chai-text-white chai-p-8-16 chai-rounded-4 chai-fs-13">Center</div>
+        <div class="chai-bg-orange chai-text-white chai-p-8-16 chai-rounded-4 chai-fs-13">With</div>
+        <div class="chai-bg-orange chai-text-white chai-p-8-16 chai-rounded-4 chai-fs-13">Gap</div>
+      </div>
+
+      <p class="chai-fs-13 chai-text-gray chai-mb-4">chai-flex + chai-flex-col + chai-items-center + chai-gap-8</p>
+      <div class="chai-flex chai-flex-col chai-items-center chai-gap-8 chai-bg-aliceblue chai-p-12 chai-rounded-8">
+        <div class="chai-bg-mediumseagreen chai-text-white chai-p-8-24 chai-rounded-4 chai-fs-13 chai-w-full chai-text-center">Item A</div>
+        <div class="chai-bg-mediumseagreen chai-text-white chai-p-8-24 chai-rounded-4 chai-fs-13 chai-w-full chai-text-center">Item B</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SHADOWS -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Shadows</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+      <div class="chai-flex chai-gap-24 chai-flex-wrap">
+        <div class="chai-bg-white chai-p-24 chai-rounded-8 chai-shadow    chai-text-center chai-fs-13">chai-shadow</div>
+        <div class="chai-bg-white chai-p-24 chai-rounded-8 chai-shadow-md chai-text-center chai-fs-13">chai-shadow-md</div>
+        <div class="chai-bg-white chai-p-24 chai-rounded-8 chai-shadow-lg chai-text-center chai-fs-13">chai-shadow-lg</div>
+        <div class="chai-bg-white chai-p-24 chai-rounded-8 chai-shadow-xl chai-text-center chai-fs-13">chai-shadow-xl</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- LIVE PLAYGROUND -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Live Playground</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+      <p class="chai-text-gray chai-mt-0 chai-fs-14">
+        Type chai-* classes space-separated and watch them apply instantly.
+        Try: <code>chai-bg-tomato chai-text-white chai-p-24 chai-rounded-12 chai-shadow-lg chai-fs-20 chai-italic</code>
+      </p>
+
+      <div class="chai-flex chai-gap-12 chai-mb-20 chai-flex-wrap">
+        <input
+          id="playground-input"
+          type="text"
+          placeholder="e.g. chai-bg-royalblue chai-text-white chai-p-20 chai-rounded-8 chai-shadow-md"
+          style="flex:1; padding:10px 14px; border:2px solid #ddd; border-radius:8px; font-size:13px; font-family:monospace; min-width:240px; outline:none;"
+          oninput="updatePlayground(this.value)"
+        />
+        <button
+          onclick="resetPlayground()"
+          class="chai-bg-tomato chai-text-white chai-px-20 chai-py-10 chai-rounded-8 chai-cursor-pointer chai-no-outline chai-bold chai-fs-14">
+          Reset
+        </button>
+      </div>
+
+      <div id="playground-box"
+           class="chai-bg-lightgray chai-p-48 chai-rounded-8 chai-text-center chai-fs-18 chai-transition">
+        I update as you type!
+      </div>
+    </div>
+  </section>
+
+
+  <!-- REACTIVITY DEMO -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Reactivity via MutationObserver</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+
+      <div class="chai-bg-lemonchiffon chai-bw-1 chai-border-solid chai-bc-gold chai-p-12-16 chai-rounded-8 chai-mb-20 chai-fs-13">
+        <strong>How it works:</strong>
+        We call <code>observer.observe(document.body, { childList: true, subtree: true })</code>.
+        Whenever JavaScript appends a new node, our callback fires and runs <code>applyStyles()</code> on it.
+        The cards below are styled with chai-* classes but no manual style call is made.
+      </div>
+
+      <button
+        onclick="addCard()"
+        class="chai-bg-royalblue chai-text-white chai-px-24 chai-py-12 chai-rounded-8 chai-cursor-pointer chai-fs-16 chai-bold chai-no-outline chai-shadow-md">
+        Add Dynamic Card
+      </button>
+
+      <div id="dynamic-container" class="chai-flex chai-flex-col chai-gap-12 chai-mt-20"></div>
+
+    </div>
+  </section>
+
+
+  <!-- CHEAT SHEET -->
+  <section class="chai-mb-48">
+    <h2 class="chai-fs-26 chai-text-royalblue chai-mb-16">Class Cheat Sheet</h2>
+    <div class="chai-bg-white chai-p-24 chai-rounded-12 chai-shadow-md">
+      <div class="chai-flex chai-gap-24 chai-flex-wrap">
+
+        <div style="flex:1; min-width:180px">
+          <h3 class="chai-mt-0 chai-mb-8 chai-text-royalblue chai-fs-15">Spacing</h3>
+          <code style="display:block; line-height:2.2; font-size:12px; color:#333;">
+            chai-p-{n}<br>
+            chai-pt / pr / pb / pl -{n}<br>
+            chai-px-{n} / chai-py-{n}<br>
+            chai-m-{n} / mt / mr / mb / ml<br>
+            chai-mx-{n} / chai-my-{n}<br>
+            chai-gap-{n}
+          </code>
+        </div>
+
+        <div style="flex:1; min-width:180px">
+          <h3 class="chai-mt-0 chai-mb-8 chai-text-royalblue chai-fs-15">Color and Text</h3>
+          <code style="display:block; line-height:2.2; font-size:12px; color:#333;">
+            chai-bg-{color}<br>
+            chai-text-{color}<br>
+            chai-bc-{color}<br>
+            chai-text-left/center/right<br>
+            chai-bold / italic / underline<br>
+            chai-uppercase / capitalize
+          </code>
+        </div>
+
+        <div style="flex:1; min-width:180px">
+          <h3 class="chai-mt-0 chai-mb-8 chai-text-royalblue chai-fs-15">Layout</h3>
+          <code style="display:block; line-height:2.2; font-size:12px; color:#333;">
+            chai-flex / block / hidden<br>
+            chai-flex-row / flex-col<br>
+            chai-flex-wrap / flex-1<br>
+            chai-items-start/center/end<br>
+            chai-justify-start/center/end<br>
+            chai-justify-between/around
+          </code>
+        </div>
+
+        <div style="flex:1; min-width:180px">
+          <h3 class="chai-mt-0 chai-mb-8 chai-text-royalblue chai-fs-15">Size and Border</h3>
+          <code style="display:block; line-height:2.2; font-size:12px; color:#333;">
+            chai-w-{n} / chai-h-{n}<br>
+            chai-w-full / chai-h-full<br>
+            chai-rounded-{n}<br>
+            chai-rounded-full / none<br>
+            chai-bw-{n} / chai-border-solid<br>
+            chai-shadow / md / lg / xl<br>
+            chai-fs-{n} / chai-fw-{n}<br>
+            chai-opacity-{0 to 100}
+          </code>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<script src="advance.js"></script>
+
+<script>
+
+  // LIVE PLAYGROUND
+  // KEY LESSON: MutationObserver watches for nodes being added/removed (childList),
+  // NOT for class attribute changes on existing elements.
+  // So when we change classList on an existing node, the observer does NOT fire.
+  // We call ChaiTailwind.applyStyles(box) manually for the playground.
+  // This is why applyStyles is exposed in the public API!
+
+  function updatePlayground(input) {
+    const box = document.getElementById('playground-box');
+    // Remove old chai- classes
+    Array.from(box.classList)
+      .filter(c => c.startsWith('chai-'))
+      .forEach(c => box.classList.remove(c));
+    // Reset inline styles so previous chai styles don't persist
+    box.removeAttribute('style');
+    // Add new classes from the input
+    const newClasses = input.trim().split(/\s+/).filter(c => c.startsWith('chai-'));
+    newClasses.forEach(c => box.classList.add(c));
+    // Manually trigger ChaiTailwind (observer won't catch classList changes)
+    ChaiTailwind.applyStyles(box);
+  }
+
+  function resetPlayground() {
+    document.getElementById('playground-input').value = '';
+    const box = document.getElementById('playground-box');
+    Array.from(box.classList)
+      .filter(c => c.startsWith('chai-'))
+      .forEach(c => box.classList.remove(c));
+    box.removeAttribute('style');
+    box.classList.add('chai-bg-lightgray', 'chai-p-48', 'chai-rounded-8', 'chai-text-center', 'chai-fs-18', 'chai-transition');
+    ChaiTailwind.applyStyles(box);
+  }
+
+
+  // REACTIVITY DEMO
+  // KEY LESSON: We just call appendChild(). The MutationObserver detects the
+  // new node and automatically runs applyStyles() on it and its children.
+  // No manual style call needed here!
+
+  const COLORS = ['tomato', 'royalblue', 'mediumseagreen', 'darkorchid', 'orange', 'teal', 'crimson', 'coral', 'slateblue'];
+  let cardCount = 0;
+
+  function addCard() {
+    cardCount++;
+    const color = COLORS[(cardCount - 1) % COLORS.length];
+
+    const card = document.createElement('div');
+    // These chai- classes are auto-applied by MutationObserver after appendChild
+    card.className = [
+      'chai-bg-' + color,
+      'chai-text-white',
+      'chai-p-16-20',
+      'chai-rounded-10',
+      'chai-shadow-md',
+      'chai-flex',
+      'chai-justify-between',
+      'chai-items-center',
+    ].join(' ');
+
+    card.innerHTML =
+      '<span class="chai-bold chai-fs-15">Dynamic Card #' + cardCount + '</span>' +
+      '<span class="chai-bg-white chai-text-' + color + ' chai-px-12 chai-py-4 chai-rounded-full chai-fs-12 chai-bold">' + color + '</span>';
+
+    // Just append. MutationObserver handles the rest.
+    document.getElementById('dynamic-container').appendChild(card);
+  }
+
+</script>
+
+</body>
+</html>

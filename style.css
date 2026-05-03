@@ -1,0 +1,315 @@
+/* Common Styles for Web Dev Cohort 2026 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fdefdd;
+}
+
+/* Typography - Consistent Bold & Italic */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: #24292e;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; margin-bottom: 20px; }
+h3 { font-size: 1.375rem; margin: 15px 0 10px 0; }
+h4 { font-size: 1.0625rem; margin: 10px 0; }
+
+strong, b {
+    font-weight: 600;
+    color: #24292e;
+}
+
+em, i, .date {
+    font-style: italic;
+    color: #586069;
+}
+
+p {
+    color: #586069;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+/* Links */
+a {
+    color: #0366d6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Card Sections - Unified Styling */
+section, .content, .day-section, .week-section {
+    background: white;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section h2, .content h2 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e1e4e8;
+}
+
+section h3 {
+    color: #0366d6;
+}
+
+/* Special Styling */
+.stylefont {
+    font-size: 3rem;
+    color: #24292e;
+    margin-bottom: 15px;
+    font-family: 'Corinthia', cursive;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header p {
+    font-size: 1.0625rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-image {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.header-image img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Social & Navigation Links */
+.social-links {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.social-links img {
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+.nav-links {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-links a {
+    font-weight: 600;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+
+/* Buttons & Links */
+.back-link, .articles-link, .assignment-link {
+    display: inline-block;
+    margin: 15px 10px 15px 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-link {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background: #0366d6;
+    color: white;
+}
+
+.back-link:hover {
+    background: #0256c7;
+}
+
+.articles-link {
+    margin: 20px 0;
+    padding: 12px 24px;
+    background: #96be9f;
+    color: white;
+}
+
+.articles-link:hover {
+    background: #96be9fe1;
+}
+
+.assignment-link {
+    background: #f9f3e8;
+    border: 2px solid #0366d6;
+    color: #0366d6;
+}
+
+.assignment-link:hover {
+    background: #0366d6;
+    color: white;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin: 12px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #0366d6;
+}
+
+/* Horizontal Rule */
+hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 2px solid #e1e4e8;
+}
+
+/* Specific Sections */
+.topic {
+    font-size: 1.0625rem;
+    font-weight: 500;
+}
+
+.summary {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f3e8;
+    border-left: 4px solid #0366d6;
+    border-radius: 4px;
+}
+
+.intro-text {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+}
+
+/* Week Section Specific */
+.week-section h2 {
+    color: #0366d6;
+    font-size: 1.875rem;
+    border-bottom: 3px solid #0366d6;
+}
+
+.day-section h3 {
+    color: #0366d6;
+    font-size: 1.625rem;
+    margin-bottom: 15px;
+}
+
+/* Articles List */
+.articles-list {
+    margin: 20px 0;
+}
+
+.articles-list li:before {
+    content: "📄";
+}
+
+.articles-list a {
+    font-weight: 500;
+}
+
+/* Article Grid */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.article-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.article-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.article-content {
+    padding: 20px;
+}
+
+.article-content a {
+    font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+
+    .nav-links a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section, .content, .day-section, .week-section {
+        padding: 20px;
+    }
+
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-image img {
+        max-width: 100%;
+    }
+}
