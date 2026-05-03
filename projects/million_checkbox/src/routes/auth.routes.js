@@ -3,110 +3,136 @@ import crypto from 'crypto';
 import { createToken, verifyToken } from '../middleware/auth.js';
 
 /**
- * Custom OIDC-style authentication server.
+ * OIDC Relying Party (RP) auth routes.
  *
- * Implements the core concepts of OpenID Connect without relying on
- * an external provider (Google, GitHub, etc.):
+ * Delegates authentication to the separate oidc-server (oidc-provider library)
+ * running on OIDC_ISSUER (default http://localhost:4000) using the
+ * Authorization Code Flow:
  *
- *  - POST /auth/register  → create a new user (stores hashed password in Redis)
- *  - POST /auth/login     → verify credentials, issue a JWT (ID Token)
- *  - GET  /auth/me        → UserInfo endpoint (returns claims from the token)
- *  - GET  /auth/userinfo  → Standard OIDC UserInfo endpoint (Bearer token)
- *  - POST /auth/logout    → clear session cookie
- *
- * Passwords are hashed using PBKDF2 (built-in crypto, no bcrypt dep needed).
+ *  GET  /auth/login     → redirect browser to OIDC server's /auth endpoint
+ *  GET  /auth/callback  → receive code, exchange for tokens, get userinfo,
+ *                         issue our own JWT cookie, redirect to /
+ *  GET  /auth/me        → return current user from JWT cookie (used by frontend)
+ *  POST /auth/logout    → clear JWT cookie + redirect to OIDC end_session endpoint
  */
 
-const HASH_ITERATIONS = 100_000;
-const HASH_KEYLEN = 64;
-const HASH_DIGEST = 'sha512';
+const ISSUER       = () => process.env.OIDC_ISSUER       || 'http://localhost:4000';
+const CLIENT_ID    = () => process.env.OIDC_CLIENT_ID    || 'my-app';
+const CLIENT_SECRET= () => process.env.OIDC_CLIENT_SECRET|| 'my-app-secret';
+const REDIRECT_URI = () => process.env.OIDC_REDIRECT_URI || 'http://localhost:3001/auth/callback';
 
-function hashPassword(password, salt) {
-  return new Promise((resolve, reject) => {
-    crypto.pbkdf2(password, salt, HASH_ITERATIONS, HASH_KEYLEN, HASH_DIGEST, (err, key) => {
-      if (err) reject(err);
-      else resolve(key.toString('hex'));
-    });
-  });
-}
-
-export function authRouter(redis) {
+export function authRouter() {
   const router = Router();
 
-  // ── Register ─────────────────────────────────────────────────────
-  router.post('/register', async (req, res) => {
-    const { email, password, name } = req.body;
+  // ── 1. Kick off Authorization Code Flow (with PKCE S256) ────────
+  router.get('/login', (req, res) => {
+    // state = CSRF protection; nonce = replay protection for ID Token
+    const state        = crypto.randomBytes(16).toString('hex');
+    const nonce        = crypto.randomBytes(16).toString('hex');
+    // PKCE: code_verifier is random 43-128 char string; challenge = BASE64URL(SHA256(verifier))
+    const codeVerifier = crypto.randomBytes(32).toString('base64url');
+    const codeChallenge = crypto.createHash('sha256').update(codeVerifier).digest('base64url');
 
-    if (!email || !password || !name) {
-      return res.status(400).json({ error: 'email, password, and name are required' });
-    }
-    if (password.length < 6) {
-      return res.status(400).json({ error: 'Password must be at least 6 characters' });
-    }
+    const cookieOpts = { httpOnly: true, maxAge: 10 * 60 * 1000, sameSite: 'lax' };
+    res.cookie('oidc_state',         state,        cookieOpts);
+    res.cookie('oidc_nonce',         nonce,        cookieOpts);
+    res.cookie('oidc_code_verifier', codeVerifier, cookieOpts);
 
-    // Check if user already exists
-    const existing = await redis.get(`oidc:user:${email}`);
-    if (existing) {
-      return res.status(409).json({ error: 'A user with this email already exists' });
-    }
-
-    // Hash password
-    const salt = crypto.randomBytes(32).toString('hex');
-    const hash = await hashPassword(password, salt);
-    const sub = crypto.randomUUID(); // unique subject identifier (OIDC `sub` claim)
-
-    // Store user in Redis (no TTL — permanent)
-    const userObj = { sub, email, name, salt, hash, createdAt: Date.now() };
-    await redis.set(`oidc:user:${email}`, JSON.stringify(userObj));
-    await redis.set(`oidc:sub:${sub}`, email); // reverse lookup by sub
-
-    // Issue JWT (acts as OIDC ID Token)
-    const token = createToken({ sub, email, name });
-
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 7 * 24 * 3600 * 1000,
+    const params = new URLSearchParams({
+      client_id:             CLIENT_ID(),
+      redirect_uri:          REDIRECT_URI(),
+      response_type:         'code',
+      scope:                 'openid profile email',
+      state,
+      nonce,
+      code_challenge:        codeChallenge,
+      code_challenge_method: 'S256',
     });
 
-    res.status(201).json({ user: { sub, email, name } });
+    res.redirect(`${ISSUER()}/auth?${params}`);
   });
 
-  // ── Login ────────────────────────────────────────────────────────
-  router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+  // ── 2. Authorization Code callback ───────────────────────────────
+  router.get('/callback', async (req, res) => {
+    const { code, state, error, error_description } = req.query;
 
-    if (!email || !password) {
-      return res.status(400).json({ error: 'email and password are required' });
+    if (error) {
+      console.error('OIDC error:', error, error_description);
+      return res.redirect('/?auth_error=' + encodeURIComponent(error_description || error));
     }
 
-    const raw = await redis.get(`oidc:user:${email}`);
-    if (!raw) {
-      return res.status(401).json({ error: 'Invalid email or password' });
+    // Validate state (CSRF check)
+    const savedState    = req.cookies?.oidc_state;
+    const codeVerifier  = req.cookies?.oidc_code_verifier;
+    if (!state || state !== savedState) {
+      return res.status(403).send('Invalid state — possible CSRF attack');
     }
-
-    const userObj = JSON.parse(raw);
-    const hash = await hashPassword(password, userObj.salt);
-
-    if (hash !== userObj.hash) {
-      return res.status(401).json({ error: 'Invalid email or password' });
+    if (!codeVerifier) {
+      return res.status(400).send('Missing PKCE verifier — please try signing in again');
     }
+    res.clearCookie('oidc_state');
+    res.clearCookie('oidc_nonce');
+    res.clearCookie('oidc_code_verifier');
 
-    // Issue JWT (ID Token)
-    const token = createToken({ sub: userObj.sub, email: userObj.email, name: userObj.name });
+    if (!code) return res.status(400).send('Missing authorization code');
 
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 7 * 24 * 3600 * 1000,
-    });
+    try {
+      // Exchange authorization code for tokens (include PKCE code_verifier)
+      const tokenRes = await fetch(`${ISSUER()}/token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic ' + Buffer.from(`${CLIENT_ID()}:${CLIENT_SECRET()}`).toString('base64'),
+        },
+        body: new URLSearchParams({
+          grant_type:    'authorization_code',
+          code,
+          redirect_uri:  REDIRECT_URI(),
+          code_verifier: codeVerifier,
+        }),
+      });
 
-    res.json({ user: { sub: userObj.sub, email: userObj.email, name: userObj.name } });
+      if (!tokenRes.ok) {
+        console.error('Token exchange failed:', await tokenRes.text());
+        return res.status(500).send('Token exchange failed');
+      }
+
+      const tokens = await tokenRes.json();
+
+      // Fetch user profile from OIDC UserInfo endpoint
+      const profileRes = await fetch(`${ISSUER()}/me`, {
+        headers: { Authorization: `Bearer ${tokens.access_token}` },
+      });
+
+      if (!profileRes.ok) {
+        console.error('UserInfo failed:', await profileRes.text());
+        return res.status(500).send('Failed to fetch user profile');
+      }
+
+      const profile = await profileRes.json();
+
+      // Issue our own short-lived JWT (so the WS server can verify it from cookie)
+      const token = createToken({
+        sub:   profile.sub,
+        email: profile.email,
+        name:  profile.name || profile.preferred_username || profile.sub,
+      });
+
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        maxAge: 7 * 24 * 3600 * 1000,
+      });
+
+      res.redirect('/');
+    } catch (err) {
+      console.error('OIDC callback error:', err);
+      res.status(500).send('Authentication failed');
+    }
   });
 
-  // ── Current user (cookie-based) ─────────────────────────────────
+  // ── 3. Current user (cookie-based — used by frontend on load) ────
   router.get('/me', (req, res) => {
     const token = req.cookies?.token;
     if (!token) return res.json({ user: null });
@@ -117,24 +143,16 @@ export function authRouter(redis) {
     res.json({ user: { sub: user.sub, email: user.email, name: user.name } });
   });
 
-  // ── OIDC UserInfo endpoint (Bearer token) ────────────────────────
-  router.get('/userinfo', (req, res) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader?.startsWith('Bearer ')) {
-      return res.status(401).json({ error: 'Bearer token required' });
-    }
-
-    const user = verifyToken(authHeader.slice(7));
-    if (!user) return res.status(401).json({ error: 'Invalid or expired token' });
-
-    // Standard OIDC UserInfo response
-    res.json({ sub: user.sub, email: user.email, name: user.name });
-  });
-
-  // ── Logout ───────────────────────────────────────────────────────
+  // ── 4. Logout — clear cookie + RP-initiated logout on OIDC server ─
   router.post('/logout', (req, res) => {
     res.clearCookie('token');
-    res.json({ ok: true });
+    // Redirect browser to OIDC server's end_session endpoint so its
+    // session is also cleared (RP-initiated logout per OIDC spec)
+    const params = new URLSearchParams({
+      post_logout_redirect_uri: `http://localhost:${process.env.PORT || 3001}/`,
+      client_id: CLIENT_ID(),
+    });
+    res.json({ ok: true, logoutUrl: `${ISSUER()}/session/end?${params}` });
   });
 
   return router;

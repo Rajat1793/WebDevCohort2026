@@ -25,7 +25,7 @@
         <span id="user-name"></span>
         <button id="logout-btn" class="btn btn-sm">Logout</button>
       </div>
-      <button id="login-btn" class="btn btn-accent hidden" onclick="showAuthModal('login')">Sign In</button>
+      <a id="login-btn" href="/auth/login" class="btn btn-accent hidden">Sign In</a>
       <div class="status-pill" id="status-pill">
         <div class="status-dot"></div>
         <span id="status-text">connecting&hellip;</span>
@@ -33,40 +33,12 @@
     </div>
   </nav>
 
-  <!-- ── Auth Modal ──────────────────────────────────────────────── -->
-  <div id="auth-modal" class="modal-overlay hidden">
-    <div class="modal-card">
-      <h2 id="auth-modal-title">Sign In</h2>
-      <form id="auth-form" autocomplete="off">
-        <div id="name-field" class="form-field hidden">
-          <label for="auth-name">Name</label>
-          <input type="text" id="auth-name" placeholder="Your name" />
-        </div>
-        <div class="form-field">
-          <label for="auth-email">Email</label>
-          <input type="email" id="auth-email" placeholder="you@example.com" required />
-        </div>
-        <div class="form-field">
-          <label for="auth-password">Password</label>
-          <input type="password" id="auth-password" placeholder="••••••••" minlength="6" required />
-        </div>
-        <p id="auth-error" class="auth-error hidden"></p>
-        <button type="submit" class="btn btn-accent btn-full" id="auth-submit-btn">Sign In</button>
-      </form>
-      <p class="auth-switch">
-        <span id="auth-switch-text">Don't have an account?</span>
-        <a href="#" id="auth-switch-link" onclick="toggleAuthMode(event)">Register</a>
-      </p>
-      <button class="modal-close" onclick="hideAuthModal()">&times;</button>
-    </div>
-  </div>
-
   <!-- ── Main content ────────────────────────────────────────────── -->
   <main>
     <!-- Auth banner for anonymous users -->
     <div id="auth-banner" class="auth-banner hidden">
       Sign in to toggle checkboxes. Anonymous users have read-only access.
-      <button class="btn btn-accent btn-sm" onclick="showAuthModal('login')">Sign in</button>
+      <a href="/auth/login" class="btn btn-accent btn-sm">Sign in</a>
     </div>
 
     <!-- Grid toolbar -->

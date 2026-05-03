@@ -188,88 +188,6 @@ jumpBtn.addEventListener('click', () => {
 jumpInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') jumpBtn.click(); });
 
 // ── Auth ────────────────────────────────────────────────────────────
-let authMode = 'login'; // 'login' | 'register'
-
-const authModal     = document.getElementById('auth-modal');
-const authForm      = document.getElementById('auth-form');
-const authTitle     = document.getElementById('auth-modal-title');
-const authNameField = document.getElementById('name-field');
-const authError     = document.getElementById('auth-error');
-const authSubmitBtn = document.getElementById('auth-submit-btn');
-const authSwitchTxt = document.getElementById('auth-switch-text');
-const authSwitchLnk = document.getElementById('auth-switch-link');
-
-function showAuthModal(mode = 'login') {
-  authMode = mode;
-  updateModalMode();
-  authError.classList.add('hidden');
-  authForm.reset();
-  authModal.classList.remove('hidden');
-}
-
-function hideAuthModal() {
-  authModal.classList.add('hidden');
-}
-
-// Expose to inline onclick handlers
-window.showAuthModal = showAuthModal;
-window.hideAuthModal = hideAuthModal;
-window.toggleAuthMode = (e) => {
-  e.preventDefault();
-  authMode = authMode === 'login' ? 'register' : 'login';
-  updateModalMode();
-};
-
-function updateModalMode() {
-  if (authMode === 'register') {
-    authTitle.textContent = 'Create Account';
-    authSubmitBtn.textContent = 'Register';
-    authNameField.classList.remove('hidden');
-    authSwitchTxt.textContent = 'Already have an account?';
-    authSwitchLnk.textContent = 'Sign in';
-  } else {
-    authTitle.textContent = 'Sign In';
-    authSubmitBtn.textContent = 'Sign In';
-    authNameField.classList.add('hidden');
-    authSwitchTxt.textContent = "Don't have an account?";
-    authSwitchLnk.textContent = 'Register';
-  }
-}
-
-authForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  authError.classList.add('hidden');
-
-  const email = document.getElementById('auth-email').value.trim();
-  const password = document.getElementById('auth-password').value;
-  const name = document.getElementById('auth-name').value.trim();
-
-  const endpoint = authMode === 'register' ? '/auth/register' : '/auth/login';
-  const body = authMode === 'register' ? { email, password, name } : { email, password };
-
-  try {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
-    const data = await res.json();
-
-    if (!res.ok) {
-      authError.textContent = data.error || 'Something went wrong';
-      authError.classList.remove('hidden');
-      return;
-    }
-
-    user = data.user;
-    updateAuthUI();
-    hideAuthModal();
-  } catch {
-    authError.textContent = 'Network error — try again';
-    authError.classList.remove('hidden');
-  }
-});
-
 async function checkAuth() {
   try {
     const res = await fetch('/auth/me');
@@ -295,9 +213,12 @@ function updateAuthUI() {
 }
 
 logoutBtn.addEventListener('click', async () => {
-  await fetch('/auth/logout', { method: 'POST' });
+  const res = await fetch('/auth/logout', { method: 'POST' });
+  const data = await res.json();
   user = null;
   updateAuthUI();
+  // Trigger OIDC RP-initiated logout to also clear the OIDC server session
+  if (data.logoutUrl) window.location.href = data.logoutUrl;
 });
 
 // ── WebSocket ───────────────────────────────────────────────────────
