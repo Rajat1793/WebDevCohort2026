@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OIDC — Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <style>
+    :root {
+      --primary:#35858e; --primary-dim:#2a6b73; --accent:#7da78c;
+      --bg:#090e0f; --surface:#0f1a1b; --surface-2:#162022;
+      --border:rgba(53,133,142,0.18); --border-subtle:rgba(255,255,255,0.05);
+      --text:#e8f0ec; --text-muted:rgba(200,225,210,0.45); --text-dim:rgba(200,225,210,0.22);
+      --font-sans:'Manrope',system-ui,sans-serif;
+      --font-serif:'Playfair Display',serif;
+      --font-mono:'JetBrains Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-sans);background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 65% 80% at 70% 50%,rgba(53,133,142,0.09) 0%,transparent 70%);}
+    body::after{content:'';position:fixed;inset:0;z-index:0;background:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(53,133,142,0.04) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(53,133,142,0.04) 80px);}
+    .card{position:relative;z-index:1;width:100%;max-width:400px;background:var(--surface);border:1px solid var(--border);padding:44px;}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--primary) 0%,var(--accent) 100%);}
+    .card-tag{font-family:var(--font-mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.4em;color:var(--primary);margin-bottom:18px;}
+    .card-heading{font-family:var(--font-serif);font-size:40px;font-weight:700;line-height:0.9;color:var(--text);margin-bottom:28px;}
+    .tabs{display:flex;gap:0;margin-bottom:28px;border-bottom:1px solid var(--border-subtle);}
+    .tab{flex:1;padding:9px;font-family:var(--font-mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.25em;color:var(--text-dim);background:transparent;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;}
+    .tab.active{color:var(--primary);border-bottom-color:var(--primary);}
+    .tab-panel{display:none;} .tab-panel.active{display:block;}
+    .field{margin-bottom:16px;}
+    .field-label{font-family:var(--font-mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.3em;color:var(--text-dim);display:block;margin-bottom:7px;}
+    .field input{width:100%;padding:11px 13px;background:var(--surface-2);border:1px solid var(--border-subtle);color:var(--text);font-family:var(--font-mono);font-size:12px;outline:none;transition:border-color .15s;}
+    .field input::placeholder{color:var(--text-dim);}
+    .field input:focus{border-color:var(--primary);}
+    .btn-submit{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;cursor:pointer;font-family:var(--font-mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.25em;transition:background .15s;margin-top:4px;}
+    .btn-submit:hover{background:var(--primary-dim);}
+    .error{font-family:var(--font-mono);font-size:10px;color:rgba(194,96,90,0.9);background:rgba(194,96,90,0.08);border:1px solid rgba(194,96,90,0.2);padding:10px 12px;margin-bottom:18px;}
+    .demo-hint{margin-top:20px;padding:12px;background:var(--surface-2);border:1px solid var(--border-subtle);}
+    .demo-hint-title{font-family:var(--font-mono);font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.3em;color:var(--text-dim);margin-bottom:8px;}
+    .demo-accounts{display:flex;flex-wrap:wrap;gap:6px;}
+    .demo-badge{font-family:var(--font-mono);font-size:9px;font-weight:500;color:var(--primary);background:rgba(53,133,142,0.08);border:1px solid rgba(53,133,142,0.2);padding:3px 8px;cursor:pointer;}
+    .demo-badge:hover{background:rgba(53,133,142,0.15);}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-tag">Auth Server / Access</div>
+    <div class="card-heading">Sign In.</div>
+
+    <% if (error) { %>
+      <div class="error"><%= error %></div>
+    <% } %>
+
+    <div class="tabs">
+      <button class="tab <%= mode === 'login' ? 'active' : '' %>" onclick="switchTab('login')">01 Sign In</button>
+      <button class="tab <%= mode === 'register' ? 'active' : '' %>" onclick="switchTab('register')">02 Register</button>
+    </div>
+
+    <!-- Sign In -->
+    <div class="tab-panel <%= mode === 'login' ? 'active' : '' %>" id="panel-login">
+      <form method="POST" action="/interaction/<%= uid %>/login">
+        <div class="field">
+          <label class="field-label">01 / Identity</label>
+          <input type="text" name="username" placeholder="username or email" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label class="field-label">02 / Key</label>
+          <input type="password" name="password" placeholder="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit" class="btn-submit">Authenticate &rarr;</button>
+      </form>
+      <div class="demo-hint">
+        <div class="demo-hint-title">Demo accounts (password: password)</div>
+        <div class="demo-accounts">
+          <span class="demo-badge" onclick="fillUser('alice')">alice</span>
+          <span class="demo-badge" onclick="fillUser('bob')">bob</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register -->
+    <div class="tab-panel <%= mode === 'register' ? 'active' : '' %>" id="panel-register">
+      <form method="POST" action="/interaction/<%= uid %>/register">
+        <div class="field">
+          <label class="field-label">01 / Username</label>
+          <input type="text" name="username" placeholder="choose a username" required />
+        </div>
+        <div class="field">
+          <label class="field-label">02 / Full name</label>
+          <input type="text" name="name" placeholder="your name" />
+        </div>
+        <div class="field">
+          <label class="field-label">03 / Email</label>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label class="field-label">04 / Key</label>
+          <input type="password" name="password" placeholder="choose a password" required />
+        </div>
+        <button type="submit" class="btn-submit">Create Account &rarr;</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function switchTab(t) {
+      document.querySelectorAll('.tab').forEach((b, i) => b.classList.toggle('active', ['login','register'][i] === t));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + t));
+    }
+    function fillUser(u) {
+      const f = document.querySelector('#panel-login input[name=username]');
+      const p = document.querySelector('#panel-login input[name=password]');
+      if (f) f.value = u;
+      if (p) p.value = 'password';
+    }
+  </script>
+</body>
+</html>

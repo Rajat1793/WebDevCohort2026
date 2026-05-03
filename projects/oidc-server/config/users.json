@@ -1,0 +1,16 @@
+[
+  {
+    "id": "user_alice",
+    "username": "alice",
+    "name": "Alice Smith",
+    "email": "alice@example.com",
+    "password": "$2a$10$RuEyZu9fZdAMrqKkVM.KLOu7o.sZt/YIvJh1sy.Obpy8/ofrs1f0a"
+  },
+  {
+    "id": "user_bob",
+    "username": "bob",
+    "name": "Bob Jones",
+    "email": "bob@example.com",
+    "password": "$2a$10$RuEyZu9fZdAMrqKkVM.KLOu7o.sZt/YIvJh1sy.Obpy8/ofrs1f0a"
+  }
+]
