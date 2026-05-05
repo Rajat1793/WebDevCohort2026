@@ -26,22 +26,15 @@ const otherUserDot = new L.DivIcon({
   popupAnchor: [0, -10],
 });
 
-function FlyToUser({ position, userId }) {
+function FlyToUser({ position }) {
   const map = useMap();
   const hasFlewRef = useRef(false);
-  const lastUserIdRef = useRef(null);
-
   useEffect(() => {
-    // Reset whenever the logged-in user changes (login/logout cycle)
-    if (userId !== lastUserIdRef.current) {
-      hasFlewRef.current = false;
-      lastUserIdRef.current = userId;
-    }
     if (position && !hasFlewRef.current) {
       map.flyTo([position.latitude, position.longitude], 15, { duration: 1.5 });
       hasFlewRef.current = true;
     }
-  }, [position, userId, map]);
+  }, [position, map]);
   return null;
 }
 
@@ -78,7 +71,7 @@ export default function LiveMap({ locations, currentUser, currentPosition }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         maxZoom={19}
       />
-      <FlyToUser position={currentPosition} userId={currentUser?.id} />
+      <FlyToUser position={currentPosition} />
 
       {currentPosition && (
         <MovingMarker

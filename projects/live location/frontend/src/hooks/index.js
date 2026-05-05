@@ -94,13 +94,11 @@ export function useGeolocation(sendLocation, isSharing) {
   const [currentPosition, setCurrentPosition] = useState(null);
   const watchIdRef = useRef(null);
   const intervalRef = useRef(null);
-  const positionRef = useRef(null); // ref so interval always reads latest coords
 
   const startWatching = useCallback(() => {
     if (!navigator.geolocation) { setPermissionState('denied'); return; }
     watchIdRef.current = navigator.geolocation.watchPosition(
       ({ coords: { latitude, longitude } }) => {
-        positionRef.current = { latitude, longitude };
         setCurrentPosition({ latitude, longitude });
         setPermissionState('granted');
       },
@@ -111,27 +109,15 @@ export function useGeolocation(sendLocation, isSharing) {
 
   const requestPermission = useCallback(() => startWatching(), [startWatching]);
 
-  // Start/stop the 3-second broadcast interval based on isSharing only —
-  // positionRef keeps latest coords so the interval never needs to restart on GPS updates.
   useEffect(() => {
-    if (isSharing) {
-      // Send immediately once we have a position (poll until available)
-      const sendWhenReady = () => {
-        if (positionRef.current) {
-          sendLocation(positionRef.current.latitude, positionRef.current.longitude);
-        }
-      };
-      sendWhenReady();
+    if (isSharing && currentPosition) {
+      sendLocation(currentPosition.latitude, currentPosition.longitude);
       intervalRef.current = setInterval(() => {
-        if (positionRef.current) {
-          sendLocation(positionRef.current.latitude, positionRef.current.longitude);
-        }
+        sendLocation(currentPosition.latitude, currentPosition.longitude);
       }, 3000);
     }
-    return () => {
-      if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
-    };
-  }, [isSharing, sendLocation]);
+    return () => { if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; } };
+  }, [isSharing, currentPosition, sendLocation]);
 
   useEffect(() => {
     return () => { if (watchIdRef.current !== null) navigator.geolocation.clearWatch(watchIdRef.current); };

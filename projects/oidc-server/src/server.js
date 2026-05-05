@@ -1,10 +1,9 @@
 'use strict';
 
-const path = require('path');
-// Load .env from the oidc-server project directory regardless of invocation cwd
-require('dotenv').config({ path: path.join(__dirname, '../.env') });
+require('dotenv').config();
 
 const express    = require('express');
+const path       = require('path');
 const provider   = require('./provider');
 const interaction = require('./routes/interaction');
 

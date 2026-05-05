@@ -3,7 +3,7 @@
 const bcrypt = require('bcryptjs');
 const path   = require('path');
 
-const USERS_FILE = process.env.USERS_FILE || path.join(__dirname, '../config/users.json');
+const USERS_FILE = process.env.USERS_FILE || path.join(__dirname, '../../config/users.json');
 let users = [];
 
 function loadUsers() {

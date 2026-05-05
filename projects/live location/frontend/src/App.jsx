@@ -19,6 +19,9 @@ function LoginPage({ onLogin }) {
 
 export default function App() {
   const { user, loading, login, logout } = useAuth();
+  const { connected, locations, sendLocation } = useSocket(user);
+  const [isSharing, setIsSharing] = useState(false);
+  const { permissionState, currentPosition, requestPermission } = useGeolocation(sendLocation, isSharing);
 
   if (loading) {
     return (
@@ -29,17 +32,6 @@ export default function App() {
   }
 
   if (!user) return <LoginPage onLogin={login} />;
-
-  // key={user.id} forces a full remount of the tracked app whenever the
-  // logged-in user changes — resets isSharing, geolocation watch, and
-  // FlyToUser so the map always centres on the new user's location.
-  return <TrackedApp key={user.id} user={user} logout={logout} />;
-}
-
-function TrackedApp({ user, logout }) {
-  const { connected, locations, sendLocation } = useSocket(user);
-  const [isSharing, setIsSharing] = useState(false);
-  const { permissionState, currentPosition, requestPermission } = useGeolocation(sendLocation, isSharing);
 
   const handleStartSharing = () => {
     if (permissionState !== 'granted') requestPermission();

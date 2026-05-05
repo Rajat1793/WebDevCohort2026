@@ -4,7 +4,6 @@ const path = require('path');
 const { Server } = require('socket.io');
 const session = require('express-session');
 const helmet = require('helmet');
-const cors = require('cors');
 
 const config = require('./config');
 const authRoutes = require('./auth/routes');
@@ -14,17 +13,11 @@ const { startSocketConsumer } = require('./kafka/socketConsumer');
 const { startDbConsumer } = require('./kafka/dbConsumer');
 const { setupSocketIO } = require('./socket/handler');
 
-const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
-
 async function main() {
   const app = express();
   const server = http.createServer(app);
 
   app.use(helmet({ contentSecurityPolicy: false }));
-  app.use(cors({
-    origin: FRONTEND_ORIGIN,
-    credentials: true,
-  }));
   app.use(express.json());
   app.use(express.static(path.join(__dirname, '../public')));
 
@@ -39,14 +32,7 @@ async function main() {
   app.use('/auth', authRoutes);
   app.get('/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
 
-  // SPA fallback — serve index.html for any non-API route so React Router works
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-  });
-
-  const io = new Server(server, {
-    cors: { origin: FRONTEND_ORIGIN, credentials: true },
-  });
+  const io = new Server(server);
   setupSocketIO(io, sessionMiddleware);
 
   await connectDatabase();

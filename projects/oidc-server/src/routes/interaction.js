@@ -18,19 +18,7 @@ router.get('/:uid', async (req, res, next) => {
       return res.render('consent', { uid: interaction.uid, params, interaction });
     }
     return next(new Error(`Unknown prompt: ${prompt.name}`));
-  } catch (err) {
-    // Session expired or server restarted — send user back to start a fresh login
-    if (err.error === 'invalid_request' || err.statusCode === 400) {
-      return res.status(400).send(`
-        <html><body style="font-family:monospace;background:#090e0f;color:#e8f0ec;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0">
-          <div style="text-align:center">
-            <p style="color:rgba(194,96,90,0.9);margin-bottom:16px">Session expired or not found.</p>
-            <a href="javascript:history.back()" style="color:#35858e">Go back and try again</a>
-          </div>
-        </body></html>`);
-    }
-    next(err);
-  }
+  } catch (err) { next(err); }
 });
 
 // ── POST /interaction/:uid/login  ──────────────────────────────────────────

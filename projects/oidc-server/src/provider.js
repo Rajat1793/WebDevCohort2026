@@ -1,10 +1,10 @@
 'use strict';
 
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../.env') });
+require('dotenv').config();
 const { Provider } = require('oidc-provider');
 const Accounts     = require('./accounts');
 const Adapter      = require('./adapter');
+const path         = require('path');
 
 const ISSUER   = process.env.ISSUER || 'http://localhost:4000';
 const isProd   = process.env.NODE_ENV === 'production';
