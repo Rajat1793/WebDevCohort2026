@@ -8,10 +8,13 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "build:server": "VITE_BASE_PATH=/ vite build",
+    "start": "node server.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist --dest projects/jokes_viewer"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },
